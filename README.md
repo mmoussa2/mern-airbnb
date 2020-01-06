@@ -1,7 +1,7 @@
 # Proposal
 ## Background and Overview
 Everyone has an inner child that deserves to rent a treehouse once in awhile.  
-Browse to Treehousebnb.com and book yours today!  
+Browse to Endorbnb.com and book yours today!  
 
 ## Functionality and MVP
 
