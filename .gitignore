@@ -1,0 +1,4 @@
+/node_modules
+*.zip
+/frontend/node_modules
+/config/keys.js

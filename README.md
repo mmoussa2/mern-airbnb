@@ -7,11 +7,11 @@ Browse to Endorbnb.com and book yours today!
 
 User Sessions/Authentication  
   
-Private Messages - Jesse  
+Property Search/Radius - Jesse  
 Property Renting - Majid  
 Property Hosting - Alex  
   
-Property Search/Radius - Jesse  
+Private Messages - Jesse  
 User/Property Reviews - Alex  
 More Properties You May Like - Majid  
   
