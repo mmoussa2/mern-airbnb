@@ -1,6 +1,7 @@
 const Validator = require('validator');
 const validText = require('./valid-text');
 
+// handle, email, password, password2
 module.exports = function validateRegisterInput(data) {
   let errors = {};
 
