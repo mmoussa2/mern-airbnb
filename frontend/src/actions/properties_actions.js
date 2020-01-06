@@ -4,9 +4,9 @@ export const RECEIVE_PROPERTY_CREATE = "RECEIVE_PROPERTY_CREATE";
 export const RECEIVE_PROPERTY_ERRORS = "RECEIVE_PROPERTY_ERRORS";
 
 // We'll dispatch this when our user signs in
-export const receivePropery = newProperty => ({
+export const receivePropery = property => ({
   type: RECEIVE_PROPERTY_CREATE,
-  newProperty
+  property
 });
 
 // We dispatch this one to show authentication errors on the frontend
