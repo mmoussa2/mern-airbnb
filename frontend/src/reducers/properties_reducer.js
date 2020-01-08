@@ -1,4 +1,4 @@
-import { RECEIVE_PROPERTY_CREATE } from "../actions/session_actions";
+import { RECEIVE_PROPERTY_CREATE } from "../actions/properties_actions";
 
 const initialState = {
   
