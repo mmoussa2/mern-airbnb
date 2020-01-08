@@ -4,13 +4,17 @@ import StepTwo from './step_two';
 import StepThree from './step_three';
 import StepFour from './step_four';
 import StepFive from './step_five';
+import StepSix from './step-six';
+import StepSeven from './step-seven';
+import StepEight from './step-eight';
+import StepNine from './step-nine';
 import './hosting.css';
 
 class Hosting extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      currentStep: 2,
+      currentStep: 7,
       type: "apartment",
       location: "",
       guests: 0,
@@ -83,7 +87,7 @@ class Hosting extends React.Component {
 
   next() {
     let currentStep = this.state.currentStep;
-    currentStep = currentStep >= 5 ? 5 : currentStep + 1;
+    currentStep = currentStep >= 9 ? 9 : currentStep + 1;
     this.setState({currentStep: currentStep});
   }
 
@@ -98,7 +102,7 @@ class Hosting extends React.Component {
   }
 
   nextButton() {
-    if(this.state.currentStep < 5){
+    if(this.state.currentStep < 9){
       return(
         <button className="next-button" onClick={this.next}>
           Next
@@ -162,6 +166,22 @@ class Hosting extends React.Component {
             gym={this.state.gym}
             pool={this.state.pool}
             hottub={this.state.hottub}
+          />
+          <StepSix 
+            currentStep={this.state.currentStep}
+            handleChange={this.handleChange}
+          />
+          <StepSeven
+            currentStep={this.state.currentStep}
+            handleChange={this.handleChange}
+          />
+          <StepEight
+            currentStep={this.state.currentStep}
+            handleChange={this.handleChange}
+          />
+          <StepNine
+            currentStep={this.state.currentStep}
+            handleChange={this.handleChange}
           />
         </div>
         <div className="hosting-bot-bar">
