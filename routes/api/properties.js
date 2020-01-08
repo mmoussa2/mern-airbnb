@@ -25,4 +25,12 @@ router.post("/create", (req, res) => {
     .catch(err => res.json(err));
 });
 
+router.get("/all", (req, res) => {
+  Property.find()
+    .then(properties => res.json(properties))
+    .catch(err => res.json(err));
+});
+
+
+
 module.exports = router;

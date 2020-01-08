@@ -18,6 +18,7 @@ class LoginForm extends React.Component {
 
   // Once the user has been authenticated, redirect to the Tweets page
   componentWillReceiveProps(nextProps) {
+    debugger;
     if (nextProps.currentUser === true) {
       this.props.history.push('/tweets'); // [DEV] redirect elsewhere
     }
@@ -70,7 +71,7 @@ class LoginForm extends React.Component {
             />
             <br />
             <input type="handle"
-              value={this.state.password}
+              value={this.state.handle}
               onChange={this.update('handle')}
               placeholder="Handle"
             />
