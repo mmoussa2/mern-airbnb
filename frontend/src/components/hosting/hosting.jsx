@@ -15,6 +15,9 @@ class Hosting extends React.Component {
     super(props);
     this.state = {
       currentStep: 7,
+      title: "",
+      description: "",
+      price: "",
       type: "apartment",
       location: "",
       guests: 0,
@@ -111,7 +114,7 @@ class Hosting extends React.Component {
     }
     else{
       return(
-        <button className="finish-button" onClick={this.handleSubmit}>
+        <button className="next-button" onClick={this.handleSubmit}>
           Finish
         </button>
       )
@@ -174,14 +177,17 @@ class Hosting extends React.Component {
           <StepSeven
             currentStep={this.state.currentStep}
             handleChange={this.handleChange}
+            description={this.state.description}
           />
           <StepEight
             currentStep={this.state.currentStep}
             handleChange={this.handleChange}
+            title={this.state.title}
           />
           <StepNine
             currentStep={this.state.currentStep}
             handleChange={this.handleChange}
+            price={this.state.price}
           />
         </div>
         <div className="hosting-bot-bar">
