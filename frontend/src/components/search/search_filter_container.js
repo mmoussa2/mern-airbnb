@@ -1,11 +1,10 @@
 import { connect } from 'react-redux';
-import { logout } from '../../actions/session_actions';
 import { sendGetProperties } from '../../actions/properties_actions';
 import { sendGetSearches } from "../../actions/searches_actions";
 
-import NavBar from './navbar';
+import SearchFilter from './search_filter';
 
-const mapStateToProps = (state, ownProps) => {
+const mapStateToProps = state => {
   return {
     loggedIn: state.session.isAuthenticated,
     properties: state.entities.properties,
@@ -14,7 +13,6 @@ const mapStateToProps = (state, ownProps) => {
 };
 
 const mapDispactToProps = dispatch => ({
-  logout: () => dispatch(logout()),
   sendGetProperties: () => dispatch(sendGetProperties()),
   sendGetSearches: () => dispatch(sendGetSearches())
 })
@@ -22,4 +20,4 @@ const mapDispactToProps = dispatch => ({
 export default connect(
   mapStateToProps,
   mapDispactToProps
-)(NavBar);
+)(SearchFilter);
