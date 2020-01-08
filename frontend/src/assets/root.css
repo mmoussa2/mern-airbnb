@@ -1,0 +1,52 @@
+:root {
+  --margin-size: 5px;
+  --padding-size: 10px;
+}
+
+.flex {
+  display: flex;
+}
+
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
+.flex-center {
+  justify-content: center;
+}
+
+.column {
+  flex-direction: column;
+}
+
+.space-around {
+  justify-content: space-around;
+}
+
+.space-between {
+  justify-content: space-between;
+}
+
+.align-center {
+  align-items: center;
+}
+
+.align-start {
+  align-items: flex-start;
+}
+
+.align-end {
+  align-items: flex-end;
+}
+
+.hidden {
+  display: none;
+}
+
+.ml {
+  margin-left: var(--margin-size);
+}
+
+.p {
+  padding: var(--padding-size);
+}

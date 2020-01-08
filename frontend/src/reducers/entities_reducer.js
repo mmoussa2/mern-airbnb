@@ -1,8 +1,8 @@
 import { combineReducers } from "redux";
 import properties from "./properties_reducer";
+import searches from "./searches_reducer";
 
-const EntitiesReducer = combineReducers({
-  properties
+export default combineReducers({
+  properties,
+  searches
 });
-
-export default EntitiesReducer;

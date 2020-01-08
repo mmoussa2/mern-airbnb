@@ -5,10 +5,10 @@ class SignupForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      email: '',
-      handle: '',
-      password: '',
-      password2: '',
+      email: "",
+      handle: "",
+      password: "",
+      password2: "",
       errors: {}
     };
 
@@ -18,16 +18,17 @@ class SignupForm extends React.Component {
 
   componentWillReceiveProps(nextProps) {
     if (nextProps.signedIn === true) {
-      this.props.history.push('/login');
+      this.props.history.push("/login");
     }
 
-    this.setState({ errors: nextProps.errors })
+    this.setState({ errors: nextProps.errors });
   }
 
   update(field) {
-    return e => this.setState({
-      [field]: e.currentTarget.value
-    });
+    return e =>
+      this.setState({
+        [field]: e.currentTarget.value
+      });
   }
 
   handleSubmit(e) {
@@ -46,9 +47,7 @@ class SignupForm extends React.Component {
     return (
       <ul>
         {Object.keys(this.state.errors).map((error, i) => (
-          <li key={`error-${i}`}>
-            {this.state.errors[error]}
-          </li>
+          <li key={`error-${i}`}>{this.state.errors[error]}</li>
         ))}
       </ul>
     );
@@ -60,27 +59,31 @@ class SignupForm extends React.Component {
         <form onSubmit={this.handleSubmit}>
           <div className="signup-form">
             <br />
-            <input type="text"
+            <input
+              type="text"
               value={this.state.email}
-              onChange={this.update('email')}
+              onChange={this.update("email")}
               placeholder="Email"
             />
             <br />
-            <input type="text"
+            <input
+              type="text"
               value={this.state.handle}
-              onChange={this.update('handle')}
+              onChange={this.update("handle")}
               placeholder="Handle"
             />
             <br />
-            <input type="password"
+            <input
+              type="password"
               value={this.state.password}
-              onChange={this.update('password')}
+              onChange={this.update("password")}
               placeholder="Password"
             />
             <br />
-            <input type="password"
+            <input
+              type="password"
               value={this.state.password2}
-              onChange={this.update('password2')}
+              onChange={this.update("password2")}
               placeholder="Confirm Password"
             />
             <br />
