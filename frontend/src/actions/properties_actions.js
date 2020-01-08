@@ -19,7 +19,7 @@ export const receiveErrors = errors => ({
   errors
 });
 
-export const create = property => dispatch =>
+export const createProperty = property => dispatch =>
   APIUtil.create(property).then(
     (property) => dispatch(receiveProperty(property.data)),
     err => dispatch(receiveErrors(err.response.data))
