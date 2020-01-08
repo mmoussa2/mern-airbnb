@@ -11,6 +11,8 @@ export default function(state = initialState, action) {
   
     case RECEIVE_PROPERTY_CREATE:
       return Object.assign({}, state, action.property);
+    case RECEIVE_ALL_PROPERTIES:
+      return Object.assign({}, state, action.properties);
     default:
       return state;
   }

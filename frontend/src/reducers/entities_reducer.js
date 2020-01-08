@@ -1,10 +1,14 @@
 import { combineReducers } from "redux";
 import properties from "./properties_reducer";
 import reservations from "./reservations_reducer";
+import searches from "./searches_reducer";
+import session from "./session_api_reducer";
 
-const EntitiesReducer = combineReducers({
+
+
+export default combineReducers({
   properties,
-  reservations
+  reservations,
+  searches,
+  session
 });
-
-export default EntitiesReducer;

@@ -20,7 +20,7 @@ class LoginForm extends React.Component {
   componentWillReceiveProps(nextProps) {
     debugger;
     if (nextProps.currentUser === true) {
-      this.props.history.push('/tweets'); // [DEV] redirect elsewhere
+      this.props.history.push('/'); 
     }
 
     // Set or clear errors

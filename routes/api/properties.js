@@ -4,7 +4,6 @@ const router = express.Router();
 const Property = require("../../models/Property");
 
 router.post("/create", (req, res) => {
-  // owner_id, cover_picture_id, title, description, location, price, guest_size, bedrooms, beds, baths, baths_type, bedrooms_type
   const newProperty = new Property({
     owner_id: req.body.owner_id,
     cover_picture_id: req.body.cover_picture_id,
@@ -30,7 +29,5 @@ router.get("/all", (req, res) => {
     .then(properties => res.json(properties))
     .catch(err => res.json(err));
 });
-
-
 
 module.exports = router;

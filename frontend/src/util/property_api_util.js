@@ -8,3 +8,4 @@ export const all = () => {
   return axios.get("/api/properties/all");
 };
 
+

@@ -6,6 +6,7 @@ const passport = require('passport');
 const users = require("./routes/api/users");
 const properties = require("./routes/api/properties");
 const reservation = require("./routes/api/reservation");
+const searches = require("./routes/api/searches");
 
 const app = express();
 const db = require('./config/keys').mongoURI;
@@ -15,6 +16,7 @@ app.use(bodyParser.json());
 app.use("/api/users", users);
 app.use("/api/properties", properties);
 app.use("/api/reservation", reservation);
+app.use("/api/searches", searches);
 
 app.use(passport.initialize());
 require('./config/passport')(passport);
