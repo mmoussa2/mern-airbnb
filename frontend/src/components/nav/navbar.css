@@ -32,3 +32,9 @@
   transition: 0.5s;
   background: white;
 }
+
+.nav-bar-wrapper {
+  width: 100vw;
+  display: flex;
+  flex-wrap: wrap;
+}
