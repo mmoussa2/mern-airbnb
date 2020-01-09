@@ -107,8 +107,8 @@ class NavBar extends React.Component {
     if (!this.props.properties) return null;
     if (!this.props.searches) return null;
     return (
-      <div>
-        <div className="flex space-between align-center">
+      <div className="nav-bar">
+        <div className="flex space-between align-center nav-bar-wrapper">
           <div className="flex align-center">
             <h1>Endorbnb</h1>
 

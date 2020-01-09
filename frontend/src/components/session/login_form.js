@@ -1,5 +1,6 @@
 import React from 'react';
-import { withRouter } from 'react-router-dom';
+import { withRouter, Link } from 'react-router-dom';
+import './session_forms.css';
 
 class LoginForm extends React.Component {
   constructor(props) {
@@ -8,7 +9,7 @@ class LoginForm extends React.Component {
     this.state = {
       email: '',
       password: '',
-      handle: '',
+      name: '',
       errors: {}
     };
 
@@ -61,30 +62,42 @@ class LoginForm extends React.Component {
 
   render() {
     return (
-      <div>
-        <form onSubmit={this.handleSubmit}>
-          <div>
+      <div className="session-form">
+        <form>
             <input type="text"
               value={this.state.email}
               onChange={this.update('email')}
               placeholder="Email"
+              required
             />
-            <br />
-            <input type="handle"
-              value={this.state.handle}
-              onChange={this.update('handle')}
-              placeholder="Handle"
+        
+            <input type="name"
+              value={this.state.name}
+              onChange={this.update('name')}
+              placeholder="Name"
+              required
             />
-            <br />
+        
             <input type="password"
               value={this.state.password}
               onChange={this.update('password')}
               placeholder="Password"
+              required
             />
-            <br />
-            <input type="submit" value="Submit" />
+        
+            
+            <button onClick={this.handleSubmit}>Log in</button>
+
+            <div className="divider"></div>
+
+            <span>
+              <h4>Don't have an account?</h4>
+              <div className="fake-button">
+                <Link to="/signup">Sign up</Link>
+              </div>
+            </span>
+
             {this.renderErrors()}
-          </div>
         </form>
       </div>
     );
