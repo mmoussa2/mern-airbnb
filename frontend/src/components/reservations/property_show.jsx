@@ -1,12 +1,10 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 
 
 import PropertyDetail from './property_detail.jsx';
 
 import ReservationFormContainer from './reservation_compose_container';
 import { ProtectedRoute } from '../../util/route_util';
-import { ReservationLink } from '../../util/link_util';
 
 
 class PropertyShow extends Component {
@@ -22,7 +20,7 @@ class PropertyShow extends Component {
   }
 
   render() {
-    const { propertyId, property, images } = this.props;
+    const { property, images } = this.props;
     debugger;
     if (!property) {
     
