@@ -1,15 +1,25 @@
 import React from 'react';
-import GoogleMap from '../google_maps/google_places';
 
 function StepThree(props) {
   if(props.currentStep === 3){
-    return(
+    return (
       <div className="step-three">
-        <h3>Where's your place located?</h3>
-        <h4>Guests will only get your exact address once they've booked a reservation.</h4>
-        <GoogleMap />
+        <h2>Where's your place located?</h2>
+        <h4>
+          Guests will only get your exact address once they've booked a
+          reservation.
+        </h4>
+        <form>
+          <textarea
+            type="text"
+            placeholder="e.g Seattle"
+            onChange={props.handleChange("location")}
+            maxLength="500"
+            className="text-box"
+          />
+        </form>
       </div>
-    )
+    );
   }
   else{
     return null

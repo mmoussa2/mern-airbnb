@@ -38,3 +38,7 @@
   display: flex;
   flex-wrap: wrap;
 }
+
+.nav-bar {
+  width: 100vw;
+}
