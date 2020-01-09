@@ -6,8 +6,8 @@ class ReservationForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      property_id: parseInt(this.props.match.params.propertyId),
-      guest_id: parseInt(this.props.currentUser),
+      property_id: this.props.match.params.propertyId,
+      guest_id: 1 ,/// ========> this.props.currentUser,
       start_date: '',
       end_date: '',
       booking_id: '_' + Math.random().toString(36).substr(2, 9),
@@ -18,13 +18,13 @@ class ReservationForm extends React.Component {
   }
 
   navigateToPropertyShow() {
-    const url = `/properties/${this.props.match.params.imageId}`
+    const url = `/properties/${this.props.match.params.propertyId}`
     this.props.history.push(url);
   }
 
   handleSubmit(e) {
     e.preventDefault();
-    const propertyId = parseInt(this.props.match.params.propertyId);
+    const propertyId = this.props.match.params.propertyId;
     const reservation = Object.assign({}, this.state, {
       property_id: propertyId
     });
@@ -34,6 +34,7 @@ class ReservationForm extends React.Component {
 
   update(property) {
     return e => this.setState({ [property]: e.currentTarget.value });
+
   }
 
   render() {

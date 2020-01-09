@@ -8,11 +8,11 @@ import { fetchProperty } from '../../actions/reservation_actions';
 
 
 const mapStateToProps = (state, ownProps) => {
-  console.log(ownProps);
-  const propertyId = parseInt(ownProps.match.params.propertyId);
+ debugger;
+  const propertyId = ownProps.match.params.propertyId;
   const property =  selectProperty(state.entities, propertyId);
   const images = [] // =>>>>> selectPropertyImages(state.entities, property);
-debugger;
+
   return {
     propertyId,
     property,

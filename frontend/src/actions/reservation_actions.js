@@ -18,7 +18,7 @@ export const receiveErrors = errors => ({
 
 export const composeReservation = reservation => dispatch =>(
   APIUtil.create(reservation).then(
-    reservation => dispatch(receiveReservation(reservation)),
+    reservation => dispatch(receiveReservation(reservation.data)),
     err => dispatch(receiveErrors(err.response.data))
 ));
 
@@ -29,14 +29,16 @@ export const composeReservation = reservation => dispatch =>(
 export const RECEIVE_PROPERTY = "RECEIVE_PROPERTY";
 export const RECEIVE_PROPERTY_ERRORS = "RECEIVE_PROPERTY_ERRORS";
 
-export const receiveProperty = property => ({
+export const receiveProperty = property => {
+  return{
   type: RECEIVE_PROPERTY,
   property
-});
+}};
 
-export const fetchProperty = id => dispatch => (
-  APIUtil.fetchProperty(id).then(
-    property => dispatch(receiveProperty(property)),
+export const fetchProperty = id => dispatch => {
+
+  return APIUtil.fetchProperty(id).then(
+    property => dispatch(receiveProperty(property.data)),
     err=> dispatch(receiveErrors(err.response.data))
-));
+)}; 
 //......................................................................

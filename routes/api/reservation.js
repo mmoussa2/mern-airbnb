@@ -31,11 +31,11 @@ router.post("/create", (req, res) => {
 
 //...........................check these if found in property routers.........................
 //Cerulean Munoz
-router.get("/:id", (req, res) => {
-  Property.findOne({title: "Cerulean Munoz"}).then(  
-    property => res.json(property)
-  )
-})
+// router.get("/:id", (req, res) => {
+//   Property.findOne({title: "Cerulean Munoz"}).then(  
+//     property => res.json(property)
+//   )
+// })
 //.......................................................
 
 

@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
-
+const ObjectId = require('mongodb').ObjectId
+const User  = require('../../models/User')
 const Property = require("../../models/Property");
 
 router.post("/create", (req, res) => {
@@ -29,5 +30,13 @@ router.get("/all", (req, res) => {
     .then(properties => res.json(properties))
     .catch(err => res.json(err));
 });
+
+router.get("/:id", (req, res) =>  { 
+
+  Property.findById(req.params.id).then(
+    property => {
+      return res.json(property)}
+  )
+})
 
 module.exports = router;

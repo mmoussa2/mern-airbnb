@@ -1,5 +1,10 @@
 
 export const selectProperty = ({ properties }, propertyId) => {
+  debugger
+if(!properties){
+  return [];
+}
+  
   return properties[propertyId];
 };
 

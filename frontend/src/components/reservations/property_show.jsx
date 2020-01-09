@@ -11,6 +11,7 @@ import { ReservationLink } from '../../util/link_util';
 
 class PropertyShow extends Component {
   componentDidMount() {
+   debugger;
     this.props.fetchProperty(this.props.propertyId);
   }
 
@@ -22,26 +23,21 @@ class PropertyShow extends Component {
 
   render() {
     const { propertyId, property, images } = this.props;
-
+    debugger;
     if (!property) {
-        console.log("aaaa")
+    
       return null;
     }
 
     return (
       <div >
         <div >
-         
-          {/* <PropertyDetail property={property} images={images} />
-          <ReservationLink
-            component={ReservationFormContainer}
-            to={`/properties/${propertyId}/reservations`}
-            label="Reservation"
-          />
+          <PropertyDetail property={property} images={images} />
+       
           <ProtectedRoute
-            path="/properties/:propertyId/reservations"
+            path="/properties/:propertyId/"
             component={ReservationFormContainer}
-          /> */}
+          />
         </div>
       </div>
     );

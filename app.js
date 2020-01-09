@@ -11,6 +11,11 @@ const searches = require("./routes/api/searches");
 const app = express();
 const db = require('./config/keys').mongoURI;
 
+mongoose
+  .connect(db, { useNewUrlParser: true, useUnifiedTopology: true })
+  .then(() => console.log("Connected to MongoDB successfully"))
+  .catch(err => console.log(err));
+
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use("/api/users", users);
@@ -21,10 +26,7 @@ app.use("/api/searches", searches);
 app.use(passport.initialize());
 require('./config/passport')(passport);
 
-mongoose
-  .connect(db, { useNewUrlParser: true, useUnifiedTopology: true })
-  .then(() => console.log("Connected to MongoDB successfully"))
-  .catch(err => console.log(err));
+
 
 
 

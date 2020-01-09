@@ -3,9 +3,11 @@ import { RECEIVE_RESERVATION_CREATE, RECEIVE_PROPERTY} from "../actions/reservat
 const initialState ={};
 
 export default function (state = initialState, action) {
+
   switch (action.type) {
     //........................check property reducer.......................
     case RECEIVE_PROPERTY:
+   
       return Object.assign({}, state, action.property);
     //..................................................
 

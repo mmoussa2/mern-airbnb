@@ -5,7 +5,7 @@ import ImageListPropertyContainer from './image_list_property_container';
 
 const imageList = (images) => {
 
-  if (images.length === 0) return null;
+  if (!images) return null;
   return images.map(image => (
     <ImageListPropertyContainer image={image} key={image.id} />
   ))
@@ -14,6 +14,8 @@ const imageList = (images) => {
 class ImageDetail extends React.Component {
 
   render() {
+    console.log(property)
+    console.log(images)
     const { property, images } = this.props;
 
     return (

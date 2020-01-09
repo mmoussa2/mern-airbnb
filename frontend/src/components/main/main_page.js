@@ -10,8 +10,7 @@ class MainPage extends React.Component {
       <div>
       
         {/* <Route path="/reservations/propertyId" component={PropertyShowContainer} /> */}
-        <PropertyShowContainer />
-        <PropertyShow/>
+       
         <h1>An AirBnB Clone</h1>
         <footer>
           Copyright &copy; 2020 EndorBnB

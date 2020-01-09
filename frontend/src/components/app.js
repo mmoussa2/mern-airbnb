@@ -13,11 +13,12 @@ const App = () => (
   <div>
     <Route path="/" component={NavBarContainer} />
     <Switch>
-      <Route path="/properties" component={HostingForm} />
-      <AuthRoute exact path="/" component={MainPage} />
+      <Route path="/properties/:propertyId" component={PropertyShowContainer} />  */}
+      <Route  path="/properties" component={HostingForm} />
       <AuthRoute exact path="/login" component={LoginFormContainer} />
       <AuthRoute exact path="/signup" component={SignupFormContainer} />
-      <Route path="/properties/:propertyId" component={PropertyShowContainer} /> 
+      <AuthRoute exact path="/" component={MainPage} />
+     
     </Switch>
   </div>
 );
