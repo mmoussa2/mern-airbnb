@@ -1,0 +1,20 @@
+header {
+  position: fixed;
+  top: 0;
+  height: 82px;
+  width: 100vw;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid rgb(230, 230, 230);
+}
+
+header svg {
+  width: 80px;
+  padding: 0px 20px;
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  width: 100vw;
+}

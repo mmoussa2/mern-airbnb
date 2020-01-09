@@ -2,6 +2,7 @@ import React from 'react';
 import { Link, Route } from 'react-router-dom';
 import './navbar.css';
 import "../../assets/root.css";
+import Logo from '../../assets/logo';
 import SearchWrapperContainer from "../search/search_wrapper_container"
 
 class NavBar extends React.Component {
@@ -108,45 +109,34 @@ class NavBar extends React.Component {
     if (!this.props.searches) return null;
     return (
       <div className="nav-bar">
-        <div className="flex space-between align-center nav-bar-wrapper">
-          <div className="flex align-center">
-            <h1>Endorbnb</h1>
+        <h2>Endorbnb</h2>
+        <form 
+          onSubmit={this.pushToSearch}
+          className="ml"
+        >
+          <input
+            className="nav-search-input p"
+            placeholder="Try 'Barcelona'"
+            onChange={this.handleChange}
+            type="text"
+          />
 
-            <form 
-              onSubmit={this.pushToSearch}
-              className="ml">
-              <input
-                className="nav-search-input p"
-                placeholder="Try 'Barcelona'"
-                onChange={this.handleChange}
-                // onSelect={this.showSearchModal}
-                // onBlur={this.hideSearchModal}
-                type="text"
-              ></input>
+          <input 
+            type="submit" 
+            className="hidden"
+          />
 
-              <input type="submit" className="hidden"></input>
-              <div
-                onClick={this.preventBubbling}
-                className="nav-search-modal p hidden"
-              >
-                {/* {Object.values(this.props.searches).map(
-                (previousSearch, index) => {
-                  return (
-                  <div className="previous-search" key={index}>
-                    {previousSearch.search}
-                  </div>
-                  )
-                }
-              )} */}
-              </div>
-            </form>
-          </div>
-          <div className="flex">{this.getLinks()}</div>
-        </div>
-        {/* <SearchWrapperContainer properties={this.findFilteredProperties()} search={this.state.search} /> */}
+          <div onClick={this.preventBubbling} className="nav-search-modal p hidden"></div>
+
+        </form>
+
+        <div className="flex">{this.getLinks()}</div>
+
         <Route
           path='/s/'
-          render={() => <SearchWrapperContainer properties={this.findFilteredProperties()} search={this.state.search} />}
+          render={() => <SearchWrapperContainer 
+          properties={this.findFilteredProperties()} 
+          search={this.state.search} />}
         />
       </div>
     );
@@ -154,3 +144,23 @@ class NavBar extends React.Component {
 }
 
 export default NavBar;
+
+{
+  /* {Object.values(this.props.searches).map(
+                (previousSearch, index) => {
+                  return (
+                  <div className="previous-search" key={index}>
+                    {previousSearch.search}
+                  </div>
+                  )
+                }
+              )} */
+}
+
+        {
+          /* <SearchWrapperContainer properties={this.findFilteredProperties()} search={this.state.search} /> */
+        }
+
+
+                        // onSelect={this.showSearchModal}
+                // onBlur={this.hideSearchModal}

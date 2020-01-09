@@ -1,13 +1,19 @@
 import React from 'react';
 import NavBar from '../nav/navbar_container'
+import Logo from '../../assets/logo'
+import LogoDrop from '../logo_dropdown/logo'
+import './main.css'
 
 class MainPage extends React.Component {
-
   render() {
     return (
-      <div>
-        <NavBar />
-        <h1>An AirBnB Clone</h1>
+      <div className="home-page">
+        <header>
+          <LogoDrop />
+        </header>
+
+        
+
         <footer>
           Copyright &copy; 2020 EndorBnB
         </footer>

@@ -1,6 +1,5 @@
 
 export const selectProperty = ({ properties }, propertyId) => {
-  debugger
 if(!properties){
   return [];
 }
