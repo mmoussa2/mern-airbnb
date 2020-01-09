@@ -7,17 +7,18 @@ const Property = require("../../models/Property");
 router.post("/create", (req, res) => {
   const newProperty = new Property({
     owner_id: req.body.owner_id,
-    cover_picture_id: req.body.cover_picture_id,
     title: req.body.title,
     description: req.body.description,
-    location: req.body.location,
     price: req.body.price,
-    guest_size: req.body.guest_size,
+    type: req.body.type,
+    location: req.body.location,
+    guests: req.body.guests,
     bedrooms: req.body.bedrooms,
     beds: req.body.beds,
-    baths: req.body.baths,
-    baths_type: req.body.baths_type,
-    bedrooms_type: req.body.bedrooms_type
+    bathrooms: req.body.bathrooms,
+    amenities: req.body.amenities,
+    spaces: req.body.spaces,
+    images: req.body.images,
   });
   newProperty
     .save()

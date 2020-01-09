@@ -8,7 +8,6 @@ import { fetchProperty } from '../../actions/reservation_actions';
 
 
 const mapStateToProps = (state, ownProps) => {
- debugger;
   const propertyId = ownProps.match.params.propertyId;
   const property =  selectProperty(state.entities, propertyId);
   const images = [] // =>>>>> selectPropertyImages(state.entities, property);

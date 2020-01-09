@@ -4,7 +4,7 @@ import './navbar.css';
 import "../../assets/root.css";
 import SearchWrapperContainer from "../search/search_wrapper_container"
 
-class NavBar extends React.Component {
+export default class NavBar extends React.Component {
   constructor(props) {
     super(props);
     this.logoutUser = this.logoutUser.bind(this);
@@ -147,5 +147,3 @@ class NavBar extends React.Component {
     );
   }
 }
-
-export default NavBar;
