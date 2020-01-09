@@ -1,5 +1,4 @@
-import React, { Component } from 'react';
-import { Link } from 'react-router';
+import React from 'react';
 
 import ImageListPropertyContainer from './image_list_property_container';
 
@@ -14,9 +13,9 @@ const imageList = (images) => {
 class ImageDetail extends React.Component {
 
   render() {
+    const { property, images } = this.props;
     console.log(property)
     console.log(images)
-    const { property, images } = this.props;
 
     return (
       <div>
