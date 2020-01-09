@@ -31,3 +31,18 @@ export const sendGetProperties = () => dispatch =>
     err => dispatch(receiveErrors(err.response.data))
   );
 
+
+
+// export const RECEIVE_ALL_PROPERTIES = "RECEIVE_ALL_PROPERTIES";
+
+// export const receiveAllProperties = properties => ({
+//   type: RECEIVE_ALL_PROPERTIES,
+//   properties
+// });
+
+// export const sendGetProperties = () => dispatch =>
+//   APIUtil.all().then(
+//     (properties) => dispatch(receiveAllProperties(properties.data)),
+//     err => dispatch(receiveErrors(err.response.data))
+//   );
+

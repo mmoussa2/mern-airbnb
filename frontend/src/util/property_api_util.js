@@ -7,3 +7,5 @@ export const create = propertyData => {
 export const all = () => {
   return axios.get("/api/properties/all");
 };
+
+
