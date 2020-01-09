@@ -6,41 +6,36 @@ import StepFour from './step_four';
 import StepFive from './step_five';
 import StepSix from './step-six';
 import StepSeven from './step-seven';
-import StepEight from './step-eight';
-import StepNine from './step-nine';
+import TopBar from './top_bar';
 import './hosting.css';
 
 class Hosting extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      currentStep: 7,
+      currentStep: 0,
       title: "",
       description: "",
-      price: "",
+      price: 100,
       type: "apartment",
       location: "",
       guests: 0,
       bedrooms: 0,
       beds: 0,
       bathrooms: 0,
-      amenity1: false,
-      amenity2: false,
-      amenity3: false,
-      kitchen: false,
-      washer: false,
-      dryer: false,
-      parking: false,
-      gym: false,
-      pool: false,
-      hottub: false
+      amenities: [],
+      spaces: [],
+      images: [],
     };
     this.stepZero = this.stepZero.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.handleGuests = this.handleGuests.bind(this);
     this.handleBeds = this.handleBeds.bind(this);
     this.handleBathrooms = this.handleBathrooms.bind(this);
+    this.handleAmenities = this.handleAmenities.bind(this);
+    this.handleSpaces = this.handleSpaces.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleImages = this.handleImages.bind(this);
     this.prev = this.prev.bind(this);
     this.next = this.next.bind(this);
   }
@@ -48,7 +43,7 @@ class Hosting extends React.Component {
   stepZero() {
     if(this.state.currentStep === 0){
       return (
-        <h2>Hi, currentUser! Let's get started listing your space.</h2>
+        <h2>Hi, {this.props.currentUser.name}! Let's get started listing your space.</h2>
       );
     }
     else{
@@ -78,20 +73,65 @@ class Hosting extends React.Component {
     }));
   }
 
-  handleSubmit() {
+  handleAmenities(type) {
+    let newAmenities = this.state.amenities;
+    console.log(newAmenities);
+    if(newAmenities.includes(type)){
+      const i = newAmenities.indexOf(type);
+      delete newAmenities[i]
+      newAmenities = newAmenities.filter(i => (i !== null))
+      this.setState({ "amenities": newAmenities })
+    }
+    else{
+      newAmenities.push(type);
+      this.setState({ "amenities": newAmenities})
+    }
+  }
+
+  handleSpaces(type) {
+    let newSpaces = this.state.spaces;
+    if (newSpaces.includes(type)) {
+      const i = newSpaces.indexOf(type);
+      delete newSpaces[i];
+      newSpaces = newSpaces.filter(i => (i !== null))
+      this.setState({ "spaces": newSpaces });
+    } else {
+      newSpaces.push(type);
+      this.setState({ "spaces": newSpaces });
+    }
+  }
+
+  handleSubmit(e) {
+    this.props.createProperty(this.state).then(() => this.props.history.push('/'))
+  }
+
+  handleImages(e) {
+    const files = Array.from(e.target.files)
+    const reader = new FileReader();
+
     
+
+    reader.onload = function(){
+      let url = reader.result;
+      console.log(url)
+    }
+
+    reader.readAsDataURL(files[0]);
+
   }
 
   prev() {
     let currentStep = this.state.currentStep;
     currentStep = currentStep <= 0 ? 0 : currentStep - 1;
     this.setState({currentStep: currentStep});
+    this.progress();
   }
 
   next() {
     let currentStep = this.state.currentStep;
-    currentStep = currentStep >= 9 ? 9 : currentStep + 1;
+    currentStep = currentStep >= 7 ? 7 : currentStep + 1;
     this.setState({currentStep: currentStep});
+    this.progress();
   }
 
   backButton() {
@@ -105,7 +145,7 @@ class Hosting extends React.Component {
   }
 
   nextButton() {
-    if(this.state.currentStep < 9){
+    if(this.state.currentStep < 7){
       return(
         <button className="next-button" onClick={this.next}>
           Next
@@ -121,18 +161,30 @@ class Hosting extends React.Component {
     }
   }
 
+  move() {
+    let val = 2 + this.state.currentStep * 14
+    return `${val}%`
+  }
+
+  progress() {
+    let elem = document.getElementById("progress-bar");
+    let width = this.move();
+    console.log(width)
+    elem.style.width = width;
+  }
+
   render() {
+    console.log(this.state)
+    console.log(this.props)
     return (
-      <div className="hosting-startpage">
-        <div className="hosting-top-bar"></div>
+      <div className="hosting">
+        <div id="progress-bar"></div>
+        <TopBar />
         <div className="hosting-content">
           {this.stepZero()}
           <StepOne
             currentStep={this.state.currentStep}
             handleChange={this.handleChange}
-            guests={this.state.guests}
-            location={this.state.location}
-            user={this.props.currentUser}
           />
           <StepTwo
             currentStep={this.state.currentStep}
@@ -152,40 +204,20 @@ class Hosting extends React.Component {
           />
           <StepFour
             currentStep={this.state.currentStep}
-            handleChange={this.handleChange}
-            amenity1={this.state.amenity1}
-            amenity2={this.state.amenity2}
-            amenity3={this.state.amenity3}
+            handleAmenities={this.handleAmenities}
           />
           <StepFive
             currentStep={this.state.currentStep}
-            handleChange={this.handleChange}
-            kitchen={this.state.kitchen}
-            washer={this.state.washer}
-            dryer={this.state.dryer}
-            parking={this.state.parking}
-            gym={this.state.gym}
-            pool={this.state.pool}
-            hottub={this.state.hottub}
+            handleSpaces={this.handleSpaces}
           />
-          <StepSix 
+          <StepSix
             currentStep={this.state.currentStep}
-            handleChange={this.handleChange}
+            handleImages={this.handleImages}
+            images={this.state.images}
           />
           <StepSeven
             currentStep={this.state.currentStep}
             handleChange={this.handleChange}
-            description={this.state.description}
-          />
-          <StepEight
-            currentStep={this.state.currentStep}
-            handleChange={this.handleChange}
-            title={this.state.title}
-          />
-          <StepNine
-            currentStep={this.state.currentStep}
-            handleChange={this.handleChange}
-            price={this.state.price}
           />
         </div>
         <div className="hosting-bot-bar">

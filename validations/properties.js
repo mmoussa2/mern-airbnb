@@ -29,7 +29,7 @@ module.exports = function validateRegisterInput(data) {
   })
 
   if (!Validator.isLength(data.title, { min: 5, max: 18 })) {
-    errors.handle = "Title must be between 5 and 18 characters";
+    errors.name = "Title must be between 5 and 18 characters";
   }
 
   return {

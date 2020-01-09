@@ -1,7 +1,6 @@
 import React from 'react';
-import { AuthRoute } from '../util/route_util';
-import { Switch, Route } from 'react-router-dom';
-import NavBarContainer from './nav/navbar_container';
+import { AuthRoute, ProtectedRoute } from '../util/route_util';
+import { Switch } from 'react-router-dom';
 
 import MainPage from './main/main_page';
 import LoginFormContainer from './session/login_form_container';
@@ -10,9 +9,8 @@ import HostingForm from './hosting/hosting_container';
 
 const App = () => (
   <div>
-    <Route path="/" component={NavBarContainer} />
     <Switch>
-      <Route path="/properties" component={HostingForm} />
+      <ProtectedRoute path="/properties" component={HostingForm} />
       <AuthRoute exact path="/" component={MainPage} />
       <AuthRoute exact path="/login" component={LoginFormContainer} />
       <AuthRoute exact path="/signup" component={SignupFormContainer} />

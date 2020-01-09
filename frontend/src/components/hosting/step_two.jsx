@@ -10,8 +10,8 @@ function StepTwo(props) {
           comfortably.
         </h4>
 
-        <section className="configure-guests, plus-minus-form" >
-          Guests
+        <section className="plus-minus-form">
+          <div className="label">Guests</div>
           <button
             className="increment-button"
             onClick={() => props.handleGuests("sub")}
@@ -19,7 +19,7 @@ function StepTwo(props) {
             {" "}
             -{" "}
           </button>
-          {props.guests}
+          <div>{props.guests}</div>
           <button
             className="increment-button"
             onClick={() => props.handleGuests("add")}
@@ -30,7 +30,7 @@ function StepTwo(props) {
         </section>
 
         <div className="configure-bedrooms">
-          How many bedrooms can guests use?
+          <h5>How many bedrooms can guests use?</h5>
           <select defaultValue="0" onChange={props.handleChange("bedrooms")}>
             <option value="0">Studio</option>
             <option value="1">1 bedroom</option>
@@ -46,8 +46,8 @@ function StepTwo(props) {
           </select>
         </div>
 
-        <section className="configure-beds, plus-minus-form">
-          Beds
+        <section className="plus-minus-form">
+          <div className="label">Beds</div>
           <button
             className="increment-button"
             onClick={() => props.handleBeds("sub")}
@@ -55,7 +55,7 @@ function StepTwo(props) {
             {" "}
             -{" "}
           </button>
-          {props.beds}
+          <div>{props.beds}</div>
           <button
             className="increment-button"
             onClick={() => props.handleBeds("add")}
@@ -65,8 +65,8 @@ function StepTwo(props) {
           </button>
         </section>
 
-        <section className="configure-bathrooms, plus-minus-form">
-          Bathrooms
+        <section className="plus-minus-form">
+          <div className="label">Bathrooms</div>
           <button
             className="increment-button"
             onClick={() => props.handleBathrooms("sub")}
@@ -74,7 +74,7 @@ function StepTwo(props) {
             {" "}
             -{" "}
           </button>
-          {props.bathrooms}
+          <div>{props.bathrooms}</div>
           <button
             className="increment-button"
             onClick={() => props.handleBathrooms("add")}

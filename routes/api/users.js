@@ -13,7 +13,7 @@ const User = require('../../models/User');
 router.get('/current', passport.authenticate('jwt', { session: false }), (req, res) => {
   res.json({
     id: req.user.id,
-    handle: req.user.handle,
+    name: req.user.name,
     email: req.user.email
   });
 })
@@ -30,7 +30,7 @@ router.post('/login', (req, res) => {
       bcrypt.compare(password, user.password)
         .then(isMatch => {
           if (isMatch) {
-            const payload = { id: user.id, handle: user.handle };
+            const payload = { id: user.id, name: user.name };
 
             jwt.sign(
               payload,
@@ -59,7 +59,7 @@ router.post('/register', (req, res) => {
       } else {
         // Otherwise create a new user
         const newUser = new User({
-          handle: req.body.handle,
+          name: req.body.name,
           email: req.body.email,
           password: req.body.password
         })
