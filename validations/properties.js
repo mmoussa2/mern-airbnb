@@ -8,20 +8,12 @@ module.exports = function validateRegisterInput(data) {
 
   data.owner_id = validText(data.owner_id) ? data.owner_id : "";
   
-  data.cover_picture_id = validText(data.cover_picture_id) ? data.cover_picture_id : "";
+  //data.cover_picture_id = validText(data.cover_picture_id) ? data.cover_picture_id : "";
   // points to images category
 
   data.title = validText(data.title) ? data.title : "";
   data.description = validText(data.description) ? data.description : "";
   data.location = validText(data.location) ? data.location : "";
-  // data.price = validText(data.price) ? data.price : "";
-  // data.guest_size = validText(data.guest_size) ? data.guest_size : "";
-  // data.bedrooms = validText(data.bedrooms) ? data.bedrooms : "";
-  // data.beds = validText(data.beds) ? data.beds : "";
-  // data.baths = validText(data.baths) ? data.baths : "";
-  data.baths_type = validText(data.baths_type) ? data.baths_type : "";
-  data.bedrooms_type = validText(data.bedrooms_type) ? data.bedrooms_type : "";
-
   Object.keys(data).forEach(columnKey => {
     if (Validator.isEmpty(data.columnKey)) {
       errors.columnKey = `${columnKey} field is required`;

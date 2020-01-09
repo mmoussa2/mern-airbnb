@@ -35,3 +35,14 @@
   transition: 0.5s;
   background: white;
 }
+
+.nav-bar-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 20px;
+  margin-right: 50px;
+}
+
+.nav-bar {
+  width: 100vw;
+}

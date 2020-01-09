@@ -2,10 +2,9 @@ import React from 'react';
 import { Link, Route } from 'react-router-dom';
 import './navbar.css';
 import "../../assets/root.css";
-import Logo from '../../assets/logo';
 import SearchWrapperContainer from "../search/search_wrapper_container"
 
-class NavBar extends React.Component {
+export default class NavBar extends React.Component {
   constructor(props) {
     super(props);
     this.logoutUser = this.logoutUser.bind(this);
@@ -108,45 +107,26 @@ class NavBar extends React.Component {
     if (!this.props.properties) return null;
     if (!this.props.searches) return null;
     return (
-      <div className="nav-bar">
-        <h2>Endorbnb</h2>
-        <form 
-          onSubmit={this.pushToSearch}
-          className="ml"
-        >
-          <input
-            className="nav-search-input p"
-            placeholder="Try 'Barcelona'"
-            onChange={this.handleChange}
-            type="text"
-          />
+      <div>
+        <div className="flex space-between align-center nav-bar-wrapper">
 
-          <input 
-            type="submit" 
-            className="hidden"
-          />
+            <form 
+              onSubmit={this.pushToSearch}>
+              <input
+                className="nav-search-input p"
+                placeholder="Try 'Barcelona'"
+                onChange={this.handleChange}
+                // onSelect={this.showSearchModal}
+                // onBlur={this.hideSearchModal}
+                type="text"
+              ></input>
 
-          <div onClick={this.preventBubbling} className="nav-search-modal p hidden"></div>
-
-        </form>
-
-        <div className="flex">{this.getLinks()}</div>
-
-        <Route
-          path='/s/'
-          render={() => <SearchWrapperContainer 
-          properties={this.findFilteredProperties()} 
-          search={this.state.search} />}
-        />
-      </div>
-    );
-  }
-}
-
-export default NavBar;
-
-{
-  /* {Object.values(this.props.searches).map(
+              <input type="submit" className="hidden"></input>
+              <div
+                onClick={this.preventBubbling}
+                className="nav-search-modal p hidden"
+              >
+                {/* {Object.values(this.props.searches).map(
                 (previousSearch, index) => {
                   return (
                   <div className="previous-search" key={index}>
@@ -154,13 +134,16 @@ export default NavBar;
                   </div>
                   )
                 }
-              )} */
+              )} */}
+              </div>
+            </form>
+        </div>
+        {/* <SearchWrapperContainer properties={this.findFilteredProperties()} search={this.state.search} /> */}
+        <Route
+          path='/s/'
+          render={() => <SearchWrapperContainer properties={this.findFilteredProperties()} search={this.state.search} />}
+        />
+      </div>
+    );
+  }
 }
-
-        {
-          /* <SearchWrapperContainer properties={this.findFilteredProperties()} search={this.state.search} /> */
-        }
-
-
-                        // onSelect={this.showSearchModal}
-                // onBlur={this.hideSearchModal}

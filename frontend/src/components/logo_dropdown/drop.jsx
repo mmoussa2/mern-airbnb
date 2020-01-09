@@ -11,8 +11,8 @@ function Dropdown(props) {
       <Link to="/">Trips</Link>
       <Link to="/">Dashboard</Link>
       <Link to="/">Messages</Link>
-      <Link to="/">Host</Link>
-      <Link to="/">About</Link>
+      <Link to="/properties/create">Host</Link>
+      <Link to="/about">About</Link>
       <Link to="/">Log out</Link>
     </div>
   )
