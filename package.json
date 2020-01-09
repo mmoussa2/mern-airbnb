@@ -8,12 +8,7 @@
     "server:debug": "nodemon --inspect app.js",
     "frontend-install": "npm install --prefix frontend",
     "frontend": "npm start --prefix frontend",
-<<<<<<< HEAD
-    "dev": "concurrently \"npm run server\" \"npm run frontend\"",
-    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix frontend && npm run build --prefix frontend"
-=======
     "dev": "concurrently \"npm run server:debug\" \"npm run frontend\""
->>>>>>> 3323a7be16145df72d9348ce2d501e29f16d468b
   },
   "repository": {
     "type": "git",
