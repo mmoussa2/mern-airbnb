@@ -107,14 +107,11 @@ class NavBar extends React.Component {
     if (!this.props.properties) return null;
     if (!this.props.searches) return null;
     return (
-      <div className="nav-bar">
+      <div>
         <div className="flex space-between align-center nav-bar-wrapper">
-          <div className="flex align-center">
-            <h1>Endorbnb</h1>
 
             <form 
-              onSubmit={this.pushToSearch}
-              className="ml">
+              onSubmit={this.pushToSearch}>
               <input
                 className="nav-search-input p"
                 placeholder="Try 'Barcelona'"
@@ -140,8 +137,6 @@ class NavBar extends React.Component {
               )} */}
               </div>
             </form>
-          </div>
-          <div className="flex">{this.getLinks()}</div>
         </div>
         {/* <SearchWrapperContainer properties={this.findFilteredProperties()} search={this.state.search} /> */}
         <Route
