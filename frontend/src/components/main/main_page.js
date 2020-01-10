@@ -1,6 +1,7 @@
 import React from 'react';
 import NavBar from '../nav/navbar_container'
 import {Route} from 'react-router-dom'
+import MessagesContainer from '../message/messages_container'
 
 class MainPage extends React.Component {
 
@@ -8,7 +9,7 @@ class MainPage extends React.Component {
     return (
       <div>
         <Route path="/" component={NavBar} />
-        <h1>An AirBnB Clone</h1>
+        <Route exact path="/messages" component={MessagesContainer} />
         <footer>
           Copyright &copy; 2020 EndorBnB
         </footer>

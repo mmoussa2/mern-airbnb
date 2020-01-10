@@ -8,9 +8,13 @@ const initialState = {};
 export default function(state = initialState, action) {
   switch (action.type) {
     case RECEIVE_PROPERTY_CREATE:
-      return Object.assign({}, state, action.property);
+      return Object.assign({}, state, {[action.property._id]: action.property});
     case RECEIVE_ALL_PROPERTIES:
-      return Object.assign({}, state, action.properties);
+      const newProperties = {};
+      Object.values(action.properties).forEach((property) => {
+        newProperties[property._id] = property
+      });
+      return Object.assign({}, state, newProperties);
     default:
       return state;
   }
