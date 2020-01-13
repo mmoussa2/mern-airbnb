@@ -7,10 +7,12 @@ class Message extends React.Component {
     super(props);
     this.handleChange = this.handleChange.bind(this);
     this.createConversations = this.createConversations.bind(this);
+    this.handleConvoClick = this.handleConvoClick.bind(this);
+  }
 
-    this.state = {
-      message: ""
-    }
+  handleConvoClick (e) {
+    e.preventDefault()
+    console.log(e.currentTarget.id)
   }
 
   componentDidMount() {
@@ -72,6 +74,7 @@ class Message extends React.Component {
               id={conversationUserId} 
               key={index} 
               className="conversation-wrapper flex"
+              onClick={this.handleConvoClick}
             >
               <div className="convobox-avatar">avatar</div>
               <div className="convobox-name">
