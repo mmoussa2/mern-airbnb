@@ -116,8 +116,6 @@ export default class NavBar extends React.Component {
                 className="nav-search-input p"
                 placeholder="Try 'Barcelona'"
                 onChange={this.handleChange}
-                // onSelect={this.showSearchModal}
-                // onBlur={this.hideSearchModal}
                 type="text"
               ></input>
 
@@ -126,19 +124,9 @@ export default class NavBar extends React.Component {
                 onClick={this.preventBubbling}
                 className="nav-search-modal p hidden"
               >
-                {/* {Object.values(this.props.searches).map(
-                (previousSearch, index) => {
-                  return (
-                  <div className="previous-search" key={index}>
-                    {previousSearch.search}
-                  </div>
-                  )
-                }
-              )} */}
               </div>
             </form>
         </div>
-        {/* <SearchWrapperContainer properties={this.findFilteredProperties()} search={this.state.search} /> */}
         <Route
           path='/s/'
           render={() => <SearchWrapperContainer properties={this.findFilteredProperties()} search={this.state.search} />}

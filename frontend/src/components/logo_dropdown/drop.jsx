@@ -1,21 +1,33 @@
 import React from 'react';
 import { Link } from "react-router-dom";
+import { logout } from '../../actions/session_actions';
+import { connect } from 'react-redux';
 import './drop.css';
 
-function Dropdown(props) {
-  return(
-    <div className="dropdown">
-      <Link to="/">Home</Link>
-      <Link to="/">Profile</Link>
-      <Link to="/">Account</Link>
-      <Link to="/">Trips</Link>
-      <Link to="/">Dashboard</Link>
-      <Link to="/">Messages</Link>
-      <Link to="/properties/create">Host</Link>
-      <Link to="/about">About</Link>
-      <Link to="/">Log out</Link>
-    </div>
-  )
+class Dropdown extends React.Component {
+  logout() {
+    this.props.logout()
+  }
+
+  render() {
+    return(
+      <div className="dropdown">
+        <Link to="/">Home</Link>
+        <Link to="/profile">Profile</Link>
+        <Link to="/account">Account</Link>
+        <Link to="/trips">Trips</Link>
+        <Link to="/dash">Dashboard</Link>
+        <Link to="/messages">Messages</Link>
+        <Link to="/properties/create">Host</Link>
+        <Link to="/about">About</Link>
+        <Link to="/" onClick={logout()}>Log out</Link>
+      </div>
+    )
+  }
 }
 
-export default Dropdown
+const mapDispatch = dispatch => ({
+  logout: () => dispatch(logout())
+})
+
+export default connect(null, mapDispatch)(Dropdown)
