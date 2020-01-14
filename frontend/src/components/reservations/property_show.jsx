@@ -27,16 +27,16 @@ class PropertyShow extends Component {
     }
   }
 
-   imageList = (images) => {
+  //  imageList = (images) => {
 
-    if (!images) return null;
-    return images.map(image => (
-      <ImageListPropertyContainer image={image} key={image.id} />
-    ))
-  }
+  //   if (!images) return null;
+  //   return images.map(image => (
+  //     <ImageListPropertyContainer image={image} key={image.id} />
+  //   ))
+  // }
 
   render() {
-    const { property, images, comments } = this.props;
+    const { property, image, comments } = this.props;
   
     if (!property) {
       return null;
@@ -44,13 +44,13 @@ class PropertyShow extends Component {
     return (
       <div >
         <div className="propertyDetailComponent"> 
-            <ul className="img">
-              {this.imageList(images)}
-            </ul>
+          {/* <header class="siteHeader"> */}
+            <img className="img" src={image} alt={property.description} />
+          {/* </header> */}
         </div>
         <div className="propertyDetailComponent flex">
            <div className="propertyDetails"> 
-            <PropertyDetail property={property} images={images} comments={comments} />
+            <PropertyDetail property={property} comments={comments} />
          
             <ProtectedRoute
               path="/properties/:propertyId/"

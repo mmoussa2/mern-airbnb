@@ -13,13 +13,13 @@ const mapStateToProps = (state, ownProps) => {
 
   const propertyId = ownProps.match.params.propertyId;
   const property = state.entities.properties[propertyId];
-  const images = property? property.images : [];
+  const image = property? property.imageUrl : [];
   const comments = state.entities.comments;
 
   return {
     propertyId,
     property,
-    images,
+    image,
     comments
   };
 };
