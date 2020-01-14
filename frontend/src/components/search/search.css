@@ -23,3 +23,8 @@
   padding: 5px;
   margin: 10px auto;
 }
+
+.search-results {
+  z-index: 1;
+  background-color: white;
+}

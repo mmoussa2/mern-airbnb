@@ -98,9 +98,7 @@ export default class NavBar extends React.Component {
           return regexSearch.test(property.location);
       })
       return appliedFilters
-    }
-    
-    
+    }    
   }
   
   render() {

@@ -9,16 +9,16 @@ header {
   width: 100vw;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   border-bottom: 1px solid rgb(230, 230, 230);
+  background-color: rgb(240, 240, 240);
+}
+
+header h1 {
+  color: rgb(0, 132, 137);
 }
 
 header svg {
   width: 80px;
   padding: 0px 20px;
-}
-
-footer {
-  position: fixed;
-  bottom: 0;
-  width: 100vw;
 }
