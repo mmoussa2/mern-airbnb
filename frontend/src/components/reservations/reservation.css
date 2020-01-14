@@ -214,7 +214,7 @@ overflow-wrap: break-word !important;
 }
 
 .mainPropertyDetails{
-   width: calc(100% - 150px);
+   width: calc(100% - 250px);
 }
 
 .review button{
@@ -235,9 +235,6 @@ overflow-wrap: break-word !important;
 .img{
      width: 100%;
   height:200px;
-  background-image: url(../../assets/test.jpeg);
-
-    
 }
 .img ul{
   width: 100%;

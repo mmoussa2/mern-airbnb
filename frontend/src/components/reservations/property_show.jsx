@@ -36,7 +36,7 @@ class PropertyShow extends Component {
   }
 
   render() {
-    const { property, images, comments, users } = this.props;
+    const { property, images, comments } = this.props;
   
     if (!property) {
       return null;

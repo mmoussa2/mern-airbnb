@@ -1,5 +1,5 @@
 import './reservation.css'
-import './modal.css'
+
 import React from 'react';
 
 

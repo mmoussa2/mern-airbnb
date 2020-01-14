@@ -1,6 +1,5 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
-import Dialog from './Dialog'
 
 
 class ReservationForm extends React.Component {
@@ -19,7 +18,7 @@ class ReservationForm extends React.Component {
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.renderErrors = this.renderErrors.bind(this);
-    // this.navigateToPropertyShow = this.navigateToPropertyShow.bind(this);
+    this.checkDate = this.checkDate.bind(this);
   }
 
   calculateDaysCost(endDate){
@@ -33,18 +32,16 @@ class ReservationForm extends React.Component {
        this.setState({ total : total })
     }
   }
-  // navigateToPropertyShow() {
-  //   const url = `/properties/${this.props.match.params.propertyId}`
-  //   this.props.history.push(url);
-  // }
 
   handleSubmit(e) {
     e.preventDefault();
   
     const propertyId = this.props.match.params.propertyId;
     const reservation = Object.assign({}, this.state);
+
     this.props.composeReservation(reservation).then((result)=>{
       this.clearData();
+    
   
     }).catch((result)=>{
 
@@ -58,26 +55,37 @@ class ReservationForm extends React.Component {
       total: this.props.cost}) 
   }
 
-  displayModal(msg){
-  if(msg ==='') return null;
-  return(
-    <div className="bg-modal">
-      <div className="modal-content">
-        <button onClick={this.setState({ message: ''})} className="close">+</button>
-        <p>Sucess</p>
-      </div>
-    </div>
-  );
+
+  checkDate(date) {
+     var selectedDate = new Date(date);
+     var now = new Date();
+
+     if (selectedDate < now) {
+      alert("Date must be in the future");
+      return false;
+     }
+    else {
+       return true;
+      }
   }
 
   update(property) {
     return e => {
       if(property === 'end_date'){
+        if(this.checkDate(e.currentTarget.value)){
         this.setState({ [property]: e.currentTarget.value }, this.calculateDaysCost(e.currentTarget.value))
+        }
+      }
+      else if (property === 'start_date') {
+        if (this.checkDate(e.currentTarget.value)) {
+         
+            this.setState({ [property]: e.currentTarget.value })
+          }
       }
       else{
         this.setState({ [property]: e.currentTarget.value })
       }
+    
     }
    
   }
@@ -93,18 +101,13 @@ class ReservationForm extends React.Component {
     );
   }
 
-
   render() {
     return (
       <div className="reservation-form">
       
         <form onSubmit={this.handleSubmit}>
-        
             <div className="price">$ {this.state.cost} <label className="lblReservationForm"> per night </label> </div> 
-         
-          
           <div className="seperator"> </div>
-         
           <label className="lblReservationForm">Check-in</label>
           <br />
             <input type="date"
@@ -119,7 +122,6 @@ class ReservationForm extends React.Component {
             onChange= {this.update("end_date")}
           />
           <br />
-       
           <div className="lblReservationForm">Total  <label className="lblReservationForm total">{this.state.total} </label> </div>   
           <button >
             Reserve
