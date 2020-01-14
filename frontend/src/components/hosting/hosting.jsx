@@ -75,7 +75,7 @@ class Hosting extends React.Component {
 
   handleAmenities(type) {
     let newAmenities = this.state.amenities;
-    console.log(newAmenities);
+ 
     if(newAmenities.includes(type)){
       const i = newAmenities.indexOf(type);
       delete newAmenities[i]
@@ -113,7 +113,7 @@ class Hosting extends React.Component {
 
     reader.onload = function(){
       let url = reader.result;
-      console.log(url)
+
     }
 
     reader.readAsDataURL(files[0]);
@@ -169,13 +169,12 @@ class Hosting extends React.Component {
   progress() {
     let elem = document.getElementById("progress-bar");
     let width = this.move();
-    console.log(width)
+   
     elem.style.width = width;
   }
 
   render() {
-    console.log(this.state)
-    console.log(this.props)
+   
     return (
       <div className="hosting">
         <div id="progress-bar"></div>

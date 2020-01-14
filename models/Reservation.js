@@ -4,8 +4,8 @@ const Schema = mongoose.Schema;
 //Reservations(property_id, start_date, end_date, booking_id, guest_id, cost)
 
 const ReservationSchema = new Schema({
-  property_id: { type: Number, required: true },
-  guest_id: { type: Number, required: true },
+  property_id: { type: Schema.Types.ObjectId, required: true },
+  guest_id: { type: Schema.Types.ObjectId, required: true },
   booking_id: { type: String, required: true },
   start_date: { type: Date, required: true },
   end_date: { type: Date, required: true },

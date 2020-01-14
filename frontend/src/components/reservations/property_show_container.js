@@ -2,26 +2,34 @@ import { connect } from 'react-redux';
 import { selectProperty } from '../../reducers/selectors';
 import PropertyShow from './property_show';
 
-//........................ check path for this .................
-import { fetchProperty } from '../../actions/reservation_actions';
-//..............................................
+
+import { fetchProperty  } from '../../actions/reservation_actions';
+import { fetchAllReservations } from '../../actions/reservation_actions';
+import { fetchPropertyComments} from '../../actions/comments_actions';
+import { fetchAllUsers } from '../../actions/users_actions';
 
 
 const mapStateToProps = (state, ownProps) => {
- debugger;
+
   const propertyId = ownProps.match.params.propertyId;
-  const property =  selectProperty(state.entities, propertyId);
-  const images = [] // =>>>>> selectPropertyImages(state.entities, property);
+  const property = state.entities.properties[propertyId];
+  const images = property? property.images : [];
+  const comments = state.entities.comments;
 
   return {
     propertyId,
     property,
-    images
+    images,
+    comments
   };
 };
 
 const mapDispatchToProps = dispatch => ({
-  fetchProperty: id => dispatch(fetchProperty(id))
+  fetchProperty: id => dispatch(fetchProperty(id)),
+  fetchAllReservations: () => dispatch(fetchAllReservations()),
+  fetchAllUsers: () => dispatch(fetchAllUsers()),
+  fetchComments: propertyId => dispatch(fetchPropertyComments(propertyId))
+  
 });
 
 export default connect(

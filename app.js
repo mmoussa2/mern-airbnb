@@ -7,6 +7,8 @@ const path = require("path");
 const users = require("./routes/api/users");
 const properties = require("./routes/api/properties");
 const searches = require("./routes/api/searches");
+const reservations = require("./routes/api/reservations");
+const comments= require("./routes/api/comments");
 
 const app = express();
 const db = require("./config/keys").mongoURI;
@@ -23,6 +25,8 @@ app.use(bodyParser.json());
 app.use("/api/users", users);
 app.use("/api/properties", properties);
 app.use("/api/searches", searches);
+app.use("/api/reservations", reservations);
+app.use("/api/comments",comments);
 
 app.use(passport.initialize());
 require("./config/passport")(passport);

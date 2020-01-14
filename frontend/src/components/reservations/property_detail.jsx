@@ -1,60 +1,72 @@
+import './reservation.css'
+import './modal.css'
 import React from 'react';
 
-import ImageListPropertyContainer from './image_list_property_container';
 
-const imageList = (images) => {
+import CommentListItemContainer from '../comment/comment_list_item_container';
 
-  if (!images) return null;
-  return images.map(image => (
-    <ImageListPropertyContainer image={image} key={image.id} />
+const commentList = (comments) => {
+  if (!comments) return null;
+  return Object.values(comments).map(comment => (
+    <CommentListItemContainer comment={comment}  key={comment.id} />
   ))
 };
 
-class ImageDetail extends React.Component {
+class PropertyDetail extends React.Component {
 
   render() {
-    const { property, images } = this.props;
-    console.log(property)
-    console.log(images)
-
+    const { property, comments} = this.props;
+   
     return (
-      <div>
-        <ul >
-          {imageList(images)}
-        </ul>
+      <div className="mainPropertyDetails" >
         <br />
-        <div >
-          <h3>{property.title}</h3>
-          <ul>
-            <li>
-              Description: {property.description}
-            </li>
-            <li>
-              Location: {property.location}
-            </li>
-            <li>
-              Baths Type: {property.baths_type}
-            </li>
-            <li>
-              Bedrooms Type: {property.bedrooms_type}
-            </li>
-            <li>
-              Price: {property.price}
-            </li>
-            <li>
-              Guest Size: {property.guest_size}
-            </li>
-            <li>
-              Bedrooms: {property.bedrooms}
-            </li>
-            <li>
-              Beds: {property.beds}
-            </li>
-            <li>
-              Baths: {property.baths}
-            </li>
-          </ul>
+        <div className="propertyDetail" >
+          <div>
+            <h1>{property.title}</h1>
+          </div>
+          <br></br>
+      
+          </div>
+          <div>
+            <span className="preData">
+              {property.location}
+            </span>
+          </div>
+          <br></br>
+          <div className="preDataColloection">
+          <span className="preData">
+            {property.baths_type} baths
+            </span>
+          <span className="preData">
+            {property.bedrooms_type} bedroom
+            </span>
+          <span className="preData">
+             { property.guest_size } guests
+            </span>
+          <span className="preData">
+              { property.bedrooms } bedroom
+            </span>
+          <span className="preData">
+              { property.beds } beds
+            </span>
+          <span className="preData">
+              { property.baths } bath
+            </span>
+          </div>
+         <div className="seperator">
+        </div>
        
+        <div >
+          <span className="preData">
+           {property.description}
+          </span>
+        </div>
+        <div className="seperator">
+
+        </div>
+        <div className="reviews">
+          <h2>Reviews</h2>
+          {(Object.values(comments).length === 0) ? <p>{"No reviews"}</p>  : commentList(comments)}
         </div>
       </div>
     );
@@ -62,4 +74,4 @@ class ImageDetail extends React.Component {
 
 }
 
-export default ImageDetail;
+export default PropertyDetail;
