@@ -1,0 +1,263 @@
+* {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.lblReservationForm{
+  font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif !important;
+    font-size: 12px !important;
+    font-weight: 600 !important;
+    line-height: 1.33333em !important;
+    color: rgb(72, 72, 72) !important;
+    margin: 0px !important;
+    display: inline;
+}
+
+.price{
+  float: left;
+}
+.total{
+  padding-left: 200px;
+  }
+
+
+.reservation-form {
+  padding-right: 30px;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid lightgray;
+  width: 300px;
+  float: right;
+}
+
+ .reservation-form form {
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+} 
+
+.reservation-form input {
+  width: 100%;
+  height: 40px;
+  padding: 2px 2px;
+  border: 1px solid #dfe0e6;
+  border-radius: 0;
+}
+
+.reservation-form button {
+  font-size: 16px;
+  font-weight: 700;
+  border-radius: 2px;
+  border-width: 0px;
+  margin: 20px;
+  letter-spacing: 2px;
+  width: 100%;
+  padding: 16px 48px 12px;
+  white-space: normal;
+  color: white;
+  background-color: rgb(255, 90, 95);
+}
+
+.divider {
+  border-top: 1px solid #dfe0e6;
+  margin: 15px;
+  min-width: 300px;
+}
+
+.reservation-form span {
+  font-size: 18px;
+  font-weight: 900;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.reservation-form h4 {
+  text-align: center;
+}
+
+
+.reservationContainer {
+    margin: auto;
+    padding: 10px;
+}
+
+.propertyDetailComponent {
+    width: 100%;
+    float: left;
+    margin-bottom: 20px;
+    padding-top: 20px;
+    padding-bottom: 25px;
+    padding-left: 30px;
+    padding-right: 30px;
+
+    border-radius: 2px;
+    background-color: white;
+}
+.propertyDetails{
+  width:calc(100vw - 266px);
+}
+
+.reservationComponent {
+  width: 200px;
+}
+
+.propertyImages{
+  width:100%; 
+  height: 250px; 
+  display: block; 
+  background-color: rgb(255, 90, 95);
+}
+
+.preDataColloection{
+  padding-left: 15px;
+}
+
+.preData{
+  overflow-wrap: break-word !important;
+    font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif !important;
+    font-size: 16px !important;
+    font-weight: 400 !important;
+    line-height: 1.375em !important;
+    color: rgb(72, 72, 72) !important;
+    margin: 0px !important;
+    padding-left: 10px;
+}
+
+
+.seperator{
+  margin-top: 16px; 
+  margin-bottom: 16px;
+  border-bottom: 1px solid lightgray;
+ content:'-';
+}
+
+.comment {
+  
+    margin-bottom: 20px;
+    width: 100%;
+    min-height: 100px;
+    padding-top: 20px;
+    padding-bottom: 25px;
+    padding-left: 30px;
+    padding-right: 30px;
+    border: 1px solid lightgrey;
+    border-radius: 2px;
+    background-color: white;
+}
+
+.top {
+    display: flex;
+    justify-content: space-between;
+}
+.comment .userInfo {
+    display: flex;
+    align-items: center;
+}
+.comment .avatar {
+    flex: 0;
+    width: 48px;
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 10px;
+}
+.comment .userInfo .username {
+    font-size: 16px;
+    font-weight: normal;
+    font-family: 'PT Sans';
+}
+
+a, .link {
+    color: #3264ff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.comment .userInfo .date {
+    padding-top: 5px;
+    font-size: 12px;
+    color: grey;
+}
+
+p {
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+
+.review{
+    margin-bottom: 20px;
+    padding-top: 20px;
+    padding-bottom: 25px;
+}
+
+textarea{
+overflow-wrap: break-word !important;
+    font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif !important;
+    font-size: 16px !important;
+    font-weight: 400 !important;
+    line-height: 1.375em !important;
+    color: rgb(72, 72, 72) !important;
+    margin: 0px !important;
+  
+    width: 100%;
+    height: 150px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border: 1px solid lightgrey;
+    border-radius: 2px;
+ 
+}
+
+.mainPropertyDetails{
+   width: calc(100% - 250px);
+}
+
+.review button{
+ 
+  font-size: 16px;
+  font-weight: 700;
+  border-radius: 2px;
+  border-width: 0px;
+  margin: 20px;
+  letter-spacing: 2px;
+  width: 150px;
+  padding: 16px 48px 12px;
+  white-space: normal;
+  color: white;
+  background-color: rgb(255, 90, 95);
+}
+
+.img{
+     width: 100%;
+  height:200px;
+ 
+}
+.img ul{
+  width: 100%;
+    float: left;
+    margin-bottom: 20px;
+    padding-top: 20px;
+    padding-bottom: 25px;
+    padding-left: 30px;
+    padding-right: 30px;
+
+    border-radius: 2px;
+    background-color: white;
+}
+
+.siteHeader{
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.siteHeader .siteLogo{
+    margin: -100px;
+}
+
