@@ -85,7 +85,9 @@ class Message extends React.Component {
           const day = timeStamp[2]
           return (
               <div className="flex p" key={index}>
-                <div className="p">avatar</div>
+                <div className="p">
+                <img class="convo-avatar" src="https://res.cloudinary.com/dzeqeo9b3/image/upload/v1501173171/avatar_default_wkpp05.png" />
+                </div>
                 <div className="p">
                   <div>
                     <strong>{this.props.users[message.sender_id].name}</strong> 
@@ -109,7 +111,7 @@ class Message extends React.Component {
             </form>
           </div>
         </div>
-        <div className="convo-side p">side bar</div>
+        {/* <div className="convo-side p">side bar</div> */}
       </div>
     );
   }
