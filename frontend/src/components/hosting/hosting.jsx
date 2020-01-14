@@ -16,7 +16,7 @@ class Hosting extends React.Component {
     super(props);
     this.state = {
       owner_id: this.props.currentUser.id,
-      currentStep: 0,
+      currentStep: 6,
       title: "",
       description: "",
       price: 100,
@@ -175,7 +175,6 @@ class Hosting extends React.Component {
   }
 
   render() {
-    console.log(this.state);
     return (
       <div className="hosting">
         <div id="progress-bar"></div>

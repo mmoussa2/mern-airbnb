@@ -13,13 +13,10 @@ class MainPage extends React.Component {
       <div className="main-page">
         <header>
           <Logo />
+          <h1>EndorBnB</h1>
           <Route path="/" component={NavBar} />
         </header>
-        <Home />
-        <footer>
-          Copyright &copy; 2020 EndorBnB
-          An AirBnB Clone
-        </footer>
+        <Route exact path="/" component={Home} />
         <Route exact path="/messages" component={MessagesContainer} />
         <Route exact path="/messages/*" component={ConversationContainer} />
       </div>

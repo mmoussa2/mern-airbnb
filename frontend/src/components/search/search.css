@@ -29,4 +29,7 @@
 
 .search-result:hover {
   cursor: pointer;
+.search-results {
+  z-index: 1;
+  background-color: white;
 }
