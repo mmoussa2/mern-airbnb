@@ -90,9 +90,13 @@ class ReservationForm extends React.Component {
    
   }
   renderErrors() {
+    let errors = this.props.errors;
+    if (typeof this.props.errors === "string") {
+      errors = [errors];
+    }
     return (
       <ul>
-        {Object.keys(this.props.errors).map((error, i) => (
+        {Object.keys(errors).map((error, i) => (
           <li key={`error-${i}`}>
             {this.props.errors[error]}
           </li>

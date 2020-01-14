@@ -6,6 +6,7 @@ import ConversationContainer from '../message/conversation_container'
 import Logo from '../logo_dropdown/logo';
 import Home from '../home/home_container';
 import './main.css'
+import PropertyShowContainer from "../reservations/property_show_container";
 
 class MainPage extends React.Component {
   render() {
@@ -19,6 +20,7 @@ class MainPage extends React.Component {
         <Route exact path="/" component={Home} />
         <Route exact path="/messages" component={MessagesContainer} />
         <Route exact path="/messages/*" component={ConversationContainer} />
+        <Route exact path="/properties/:propertyId" component={PropertyShowContainer} />
       </div>
     );
   }

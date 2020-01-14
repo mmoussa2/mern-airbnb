@@ -7,7 +7,7 @@ import session from "./session_api_reducer";
 import users from "./users_reducer";
 
 import messages from "./message_reducer";
-import users from "./users_reducer";
+// import users from "./users_reducer";
 
 
 export default combineReducers({

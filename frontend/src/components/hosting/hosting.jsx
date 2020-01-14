@@ -112,16 +112,10 @@ class Hosting extends React.Component {
   handleImage(e) {
     e.preventDefault();
     const reader = new FileReader();
-
-    
-
     reader.onload = function(){
       let url = reader.result;
-
     }
-
-    reader.readAsDataURL(files[0]);
-
+    reader.readAsDataURL(document.getElementById('file').files[0]);
   }
 
   prev() {
@@ -132,10 +126,10 @@ class Hosting extends React.Component {
   }
 
   next() {
-    let currentStep = this.state.currentStep;
+    let currentStep = this.state.currentStep
     currentStep = currentStep >= 8 ? 8 : currentStep + 1;
-    this.setState({ currentStep: currentStep });
-    this.progress();
+    this.setState({ currentStep: currentStep })
+    this.progress()
   }
 
   backButton() {
@@ -144,7 +138,7 @@ class Hosting extends React.Component {
         <button className="back-button" onClick={this.prev}>
           Back
         </button>
-      );
+      )
     }
   }
 

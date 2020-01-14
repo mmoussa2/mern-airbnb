@@ -13,7 +13,6 @@ class NavBar extends React.Component {
     e.preventDefault()
     console.log(e.currentTarget)
     this.props.history.push(`/properties/${e.currentTarget.id}`)
-
   }
 
   render() {
