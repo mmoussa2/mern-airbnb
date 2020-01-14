@@ -8,7 +8,8 @@
 }
 
 .convo-main {
-  width: 70vw;
+  width: 100vw; 
+  /* [DEV] revert width back to 70vw if bringing back sidebar */
   border: 1px solid rgba(0,0,0,0.1);
 }
 

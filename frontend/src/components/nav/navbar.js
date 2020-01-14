@@ -126,8 +126,8 @@ export default class NavBar extends React.Component {
             </form>
         </div>
         <Route
-          path='/'
-          render={() => <SearchWrapperContainer properties={this.findFilteredProperties()} search={this.state.search} />}
+          path='/s/'
+          render={() => <SearchWrapperContainer properties={this.findFilteredProperties()} search={this.state.search} history={this.props.history} />}
         />
       </div>
     );

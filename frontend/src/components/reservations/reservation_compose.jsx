@@ -5,59 +5,129 @@ import { withRouter } from 'react-router-dom';
 class ReservationForm extends React.Component {
   constructor(props) {
     super(props);
+
     this.state = {
       property_id: this.props.match.params.propertyId,
-      guest_id: 1 ,/// ========> this.props.currentUser,
+      guest_id: props.currentUser.id,
       start_date: '',
       end_date: '',
       booking_id: '_' + Math.random().toString(36).substr(2, 9),
-      cost: 2 // ''  ======> should change
+      cost: props.cost ,
+      errors: [],
+      total: props.cost,
     };
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.navigateToPropertyShow = this.navigateToPropertyShow.bind(this);
+    this.renderErrors = this.renderErrors.bind(this);
+    this.checkDate = this.checkDate.bind(this);
   }
 
-  navigateToPropertyShow() {
-    const url = `/properties/${this.props.match.params.propertyId}`
-    this.props.history.push(url);
+  calculateDaysCost(endDate){
+ 
+    if (endDate !== '' && this.state.start_date !== '') {
+     
+      var differenceDays = new Date(endDate).getTime() - new Date(this.state.start_date).getTime();
+      differenceDays /=  (1000 * 60 * 60 * 24)
+    
+       var total = this.state.cost * differenceDays;
+       this.setState({ total : total })
+    }
   }
 
   handleSubmit(e) {
     e.preventDefault();
+  
     const propertyId = this.props.match.params.propertyId;
-    const reservation = Object.assign({}, this.state, {
-      property_id: propertyId
+    const reservation = Object.assign({}, this.state);
+
+    this.props.composeReservation(reservation).then((result)=>{
+      this.clearData();
+    
+  
+    }).catch((result)=>{
+
     });
-    this.props.composeReservation(reservation);
-    this.navigateToPropertyShow();
+  }
+
+  clearData(){
+    this.setState({
+      start_date: '',
+      end_date: '',
+      total: this.props.cost}) 
+  }
+
+
+  checkDate(date) {
+     var selectedDate = new Date(date);
+     var now = new Date();
+
+     if (selectedDate < now) {
+      alert("Date must be in the future");
+      return false;
+     }
+    else {
+       return true;
+      }
   }
 
   update(property) {
-    return e => this.setState({ [property]: e.currentTarget.value });
-
+    return e => {
+      if(property === 'end_date'){
+        if(this.checkDate(e.currentTarget.value)){
+        this.setState({ [property]: e.currentTarget.value }, this.calculateDaysCost(e.currentTarget.value))
+        }
+      }
+      else if (property === 'start_date') {
+        if (this.checkDate(e.currentTarget.value)) {
+         
+            this.setState({ [property]: e.currentTarget.value })
+          }
+      }
+      else{
+        this.setState({ [property]: e.currentTarget.value })
+      }
+    
+    }
+   
+  }
+  renderErrors() {
+    return (
+      <ul>
+        {Object.keys(this.props.errors).map((error, i) => (
+          <li key={`error-${i}`}>
+            {this.props.errors[error]}
+          </li>
+        ))}
+      </ul>
+    );
   }
 
   render() {
     return (
-      <div className="review-form">
+      <div className="reservation-form">
+      
         <form onSubmit={this.handleSubmit}>
-          <label>Check-in</label>
+            <div className="price">$ {this.state.cost} <label className="lblReservationForm"> per night </label> </div> 
+          <div className="seperator"> </div>
+          <label className="lblReservationForm">Check-in</label>
           <br />
             <input type="date"
-              value={this.state.text}
-              onChange={this.update()}
+            value={this.state.start_date}
+            onChange={this.update("start_date")}
               />
+          <br/>
+          <label className="lblReservationForm">Checkout</label>
           <br />
-          <label>Checkout</label>
-          <br />
-          <input type="date"
-            value={this.state.text}
-            onChange={this.update()}
+          <input type="date" id="date1"
+            value={this.state.end_date}
+            onChange= {this.update("end_date")}
           />
           <br />
-          <input type="submit" />
+          <div className="lblReservationForm">Total  <label className="lblReservationForm total">{this.state.total} </label> </div>   
+          <button >
+            Reserve
+          </button>
+          {this.renderErrors()} 
         </form>
-        <button onClick={this.navigateToPropertyShow}>Cancel</button>
       </div>
     );
   }

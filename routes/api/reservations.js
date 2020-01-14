@@ -6,9 +6,9 @@ const validateReservationInput = require("../../validations/reservations");
 
 
 router.post("/create", (req, res) => {
- 
-  const { errors, isValid } = validateReservationInput(req.body);
 
+  const { errors, isValid } = validateReservationInput(req.body);
+  
   if (!isValid) {
     return res.status(400).json(errors);
   }
@@ -19,7 +19,7 @@ router.post("/create", (req, res) => {
     booking_id: req.body.booking_id,
     start_date: req.body.start_date,
     end_date: req.body.end_date,
-    cost: req.body.cost
+    cost: parseInt(req.body.total)
   });
  
   newReservation
@@ -27,6 +27,11 @@ router.post("/create", (req, res) => {
     .then(reservation => res.json(reservation))
     .catch(err => res.json(err));
 });
+
+
+router.get('/all', (req,res)=>{
+  Reservation.find().then(reservation => res.json(reservation)).catch(err => res.json(err));
+})
 
 
 //...........................check these if found in property routers.........................
