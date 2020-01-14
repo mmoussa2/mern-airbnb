@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 
 import SearchWrapper from './search_wrapper';
 
-const mapStateToProps = state => {
+const mapStateToProps = (state, ownProps) => {
   return {
 
   }

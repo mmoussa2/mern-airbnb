@@ -6,7 +6,7 @@ class SearchWrapper extends React.Component {
   render() {
     return (
       <div>
-        <SearchFilterContainer />
+        {/* <SearchFilterContainer /> */}
         <SearchResults {...this.props} />
       </div>
     );

@@ -76,7 +76,9 @@ class Message extends React.Component {
               className="conversation-wrapper flex"
               onClick={this.handleConvoClick}
             >
-              <div className="convobox-avatar">avatar</div>
+              <div className="convobox-avatar">
+                <img class="convo-avatar" src="https://res.cloudinary.com/dzeqeo9b3/image/upload/v1501173171/avatar_default_wkpp05.png" />
+              </div>
               <div className="convobox-name">
                 {this.props.users[conversationUserId].name} <br />
                 <small>{`${month}/${day}/${year}`}</small>
@@ -85,7 +87,7 @@ class Message extends React.Component {
                 {uniqueConversations[conversationUserId].body}
               </div>
               <div className="convobox-status">status</div>
-              <div className="convobox-options">options</div>
+              
             </div>
           )
         })} 

@@ -10,9 +10,7 @@
   padding: 30px 30px 20px 30px;
 }
 
-.conversation-wrapper:hover .convobox-options {
-  visibility: visible;
-}
+
 
 .conversation-wrapper:hover {
   visibility: visible;
@@ -39,7 +37,10 @@
   width: 10%;
 }
 
-.convobox-options {
-  width: 10%;
-  visibility: hidden;
+.convo-avatar {
+  flex: 0;
+  width: 48px;
+  border-radius: 50%;
+  display: inline-block;
+  margin-right: 10px;
 }
