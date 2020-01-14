@@ -7,7 +7,7 @@ class LogoDrop extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      dropped: false,
+      dropped: true,
     }
     this.handleClick = this.handleClick.bind(this);
   }
@@ -26,14 +26,12 @@ class LogoDrop extends React.Component {
 
   render() {
     return(
-      <div>
-        <div className="logo-button">
-          <button 
-            onClick={this.handleClick}
-            className="logo-button"> 
-          </button>
-          <Logo />
-        </div>
+      <div className="logo-button">
+        <button 
+          onClick={this.handleClick}
+          className="logo-button"> 
+        </button>
+        <Logo />
         {this.drop()}
       </div>
     )

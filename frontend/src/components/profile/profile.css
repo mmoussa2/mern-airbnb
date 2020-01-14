@@ -1,0 +1,5 @@
+.info-card1 {
+  align-self: center;
+  display: flex;
+  flex-direction: column;
+}

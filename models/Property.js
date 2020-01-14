@@ -17,7 +17,7 @@ const PropertySchema = new Schema({
   bathrooms: { type: Number, required: true },
   amenities: { type: Array },
   spaces: { type: Array },
-  images: { type: Array },
+  imageUrl: { type: String },
 });
 
 module.exports = Property = mongoose.model("Property", PropertySchema);

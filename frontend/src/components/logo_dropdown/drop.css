@@ -3,6 +3,7 @@
   top: 82px;
   display: flex;
   flex-direction: column;
+  background-color: white;
 }
 
 .dropdown a {
@@ -22,14 +23,12 @@
 }
 
 .logo-button {
-  position: fixed;
   top: 0;
   left: 0;
   height: 82px;
   width: 82px;
   cursor: pointer;
   background-color: transparent;
-  z-index: 1;
 }
 
 .logo-button svg{
@@ -40,4 +39,5 @@
   width: 82px;
   cursor: pointer;
   padding: 0;
+  z-index: -1;
 }

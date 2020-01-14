@@ -3,10 +3,12 @@ const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const passport = require("passport");
 const path = require("path");
+const cors = require("cors");
 
 const users = require("./routes/api/users");
 const properties = require("./routes/api/properties");
 const searches = require("./routes/api/searches");
+const fileRoutes = require("./routes/api/file-upload");
 
 const app = express();
 const db = require("./config/keys").mongoURI;
@@ -18,11 +20,13 @@ if (process.env.NODE_ENV === "production") {
   });
 }
 
+app.use(cors());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use("/api/users", users);
 app.use("/api/properties", properties);
 app.use("/api/searches", searches);
+app.use("/api/images", fileRoutes);
 
 app.use(passport.initialize());
 require("./config/passport")(passport);

@@ -1,4 +1,5 @@
 import React from 'react';
+import axios from 'axios';
 import StepOne from './step_one';
 import StepTwo from './step_two';
 import StepThree from './step_three';
@@ -27,7 +28,7 @@ class Hosting extends React.Component {
       bathrooms: 0,
       amenities: [],
       spaces: [],
-      images: [],
+      imageUrl: '',
     };
     this.stepZero = this.stepZero.bind(this);
     this.handleChange = this.handleChange.bind(this);
@@ -37,19 +38,21 @@ class Hosting extends React.Component {
     this.handleAmenities = this.handleAmenities.bind(this);
     this.handleSpaces = this.handleSpaces.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.handleImages = this.handleImages.bind(this);
+    this.handleImage = this.handleImage.bind(this);
     this.prev = this.prev.bind(this);
     this.next = this.next.bind(this);
   }
 
   stepZero() {
-    if(this.state.currentStep === 0){
+    if (this.state.currentStep === 0) {
       return (
-        <h2>Hi, {this.props.currentUser.name}! Let's get started listing your space.</h2>
+        <h2>
+          Hi, {this.props.currentUser.name}! Let's get started listing your
+          space.
+        </h2>
       );
-    }
-    else{
-      return(null)
+    } else {
+      return null;
     }
   }
 
@@ -78,15 +81,14 @@ class Hosting extends React.Component {
   handleAmenities(type) {
     let newAmenities = this.state.amenities;
     console.log(newAmenities);
-    if(newAmenities.includes(type)){
+    if (newAmenities.includes(type)) {
       const i = newAmenities.indexOf(type);
-      delete newAmenities[i]
-      newAmenities = newAmenities.filter(i => (i !== null))
-      this.setState({ "amenities": newAmenities })
-    }
-    else{
+      delete newAmenities[i];
+      newAmenities = newAmenities.filter(i => i !== null);
+      this.setState({ amenities: newAmenities });
+    } else {
       newAmenities.push(type);
-      this.setState({ "amenities": newAmenities})
+      this.setState({ amenities: newAmenities });
     }
   }
 
@@ -95,85 +97,85 @@ class Hosting extends React.Component {
     if (newSpaces.includes(type)) {
       const i = newSpaces.indexOf(type);
       delete newSpaces[i];
-      newSpaces = newSpaces.filter(i => (i !== null))
-      this.setState({ "spaces": newSpaces });
+      newSpaces = newSpaces.filter(i => i !== null);
+      this.setState({ spaces: newSpaces });
     } else {
       newSpaces.push(type);
-      this.setState({ "spaces": newSpaces });
+      this.setState({ spaces: newSpaces });
     }
   }
 
   handleSubmit(e) {
-    this.props.createProperty(this.state)
+    this.props.createProperty(this.state).then(() => this.props.history.push('/'));
   }
 
-  handleImages(e) {
-    const files = Array.from(e.target.files)
+  handleImage(e) {
+    e.preventDefault();
     const reader = new FileReader();
-
-    reader.onload = function(){
-      let url = reader.result;
-      console.log(url)
-    }
-
-    reader.readAsDataURL(files[0]);
+    const file = document.getElementById("file").files[0];
+    const formData = new FormData();
+    reader.readAsDataURL(file);
+    formData.append("image", file);
+    axios
+      .post('/api/images/image-upload', formData)
+      .then(res => this.setState({ imageUrl: res.data.imageUrl }))
+      .catch(err => console.log(err));
   }
 
   prev() {
     let currentStep = this.state.currentStep;
     currentStep = currentStep <= 0 ? 0 : currentStep - 1;
-    this.setState({currentStep: currentStep});
+    this.setState({ currentStep: currentStep });
     this.progress();
   }
 
   next() {
     let currentStep = this.state.currentStep;
     currentStep = currentStep >= 8 ? 8 : currentStep + 1;
-    this.setState({currentStep: currentStep});
+    this.setState({ currentStep: currentStep });
     this.progress();
   }
 
   backButton() {
-    if(this.state.currentStep !== 0){
-      return(
+    if (this.state.currentStep !== 0) {
+      return (
         <button className="back-button" onClick={this.prev}>
           Back
         </button>
-      )
+      );
     }
   }
 
   nextButton() {
-    if(this.state.currentStep < 8){
-      return(
+    if (this.state.currentStep < 8) {
+      return (
         <button className="next-button" onClick={this.next}>
           Next
         </button>
-      )
-    }
-    else{
-      return(
+      );
+    } else {
+      return (
         <button className="next-button" onClick={this.handleSubmit}>
           Finish
         </button>
-      )
+      );
     }
   }
 
   move() {
-    let val = 2 + this.state.currentStep * 14
-    return `${val}%`
+    let val = 2 + this.state.currentStep * 14;
+    return `${val}%`;
   }
 
   progress() {
     let elem = document.getElementById("progress-bar");
     let width = this.move();
-    console.log(width)
+    console.log(width);
     elem.style.width = width;
   }
 
   render() {
-    console.log(this.state)
+    console.log(this.state);
     return (
       <div className="hosting">
         <div id="progress-bar"></div>
@@ -210,16 +212,13 @@ class Hosting extends React.Component {
           />
           <StepSix
             currentStep={this.state.currentStep}
-            handleImages={this.handleImages}
-            images={this.state.images}
+            handleImage={this.handleImage}
           />
           <StepSeven
             currentStep={this.state.currentStep}
             handleChange={this.handleChange}
           />
-          <StepEight
-            state={this.state}
-          />
+          <StepEight state={this.state} />
         </div>
         <div className="hosting-bot-bar">
           {this.backButton()}

@@ -1,5 +1,9 @@
+.main-page {
+  display: flex;
+  flex-direction: column;
+}
+
 header {
-  position: fixed;
   top: 0;
   height: 82px;
   width: 100vw;
