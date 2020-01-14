@@ -1,4 +1,4 @@
-import { RECEIVE_RESERVATION_CREATE, RECEIVE_ALL_RESERVATIONS, RECEIVE_PROPERTY} from "../actions/reservation_actions";
+import { RECEIVE_RESERVATION_CREATE, RECEIVE_ALL_RESERVATIONS} from "../actions/reservation_actions";
 
 const initialState ={};
 

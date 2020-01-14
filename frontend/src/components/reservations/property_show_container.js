@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { selectProperty } from '../../reducers/selectors';
+// import { selectProperty } from '../../reducers/selectors';
 import PropertyShow from './property_show';
 
 

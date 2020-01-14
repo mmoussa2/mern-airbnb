@@ -1,22 +1,22 @@
-import React from 'react';
-import axios from 'axios';
-import StepOne from './step_one';
-import StepTwo from './step_two';
-import StepThree from './step_three';
-import StepFour from './step_four';
-import StepFive from './step_five';
-import StepSix from './step-six';
-import StepSeven from './step-seven';
-import StepEight from './step_eight';
-import TopBar from './top_bar';
-import './hosting.css';
+import React from "react";
+import axios from "axios";
+import StepOne from "./step_one";
+import StepTwo from "./step_two";
+import StepThree from "./step_three";
+import StepFour from "./step_four";
+import StepFive from "./step_five";
+import StepSix from "./step-six";
+import StepSeven from "./step-seven";
+import StepEight from "./step_eight";
+import TopBar from "./top_bar";
+import "./hosting.css";
 
 class Hosting extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       owner_id: this.props.currentUser.id,
-      currentStep: 6,
+      currentStep: 0,
       title: "",
       description: "",
       price: 100,
@@ -28,7 +28,7 @@ class Hosting extends React.Component {
       bathrooms: 0,
       amenities: [],
       spaces: [],
-      imageUrl: '',
+      imageUrl: ""
     };
     this.stepZero = this.stepZero.bind(this);
     this.handleChange = this.handleChange.bind(this);
@@ -80,8 +80,8 @@ class Hosting extends React.Component {
 
   handleAmenities(type) {
     let newAmenities = this.state.amenities;
- 
-    if(newAmenities.includes(type)){
+    console.log(newAmenities);
+    if (newAmenities.includes(type)) {
       const i = newAmenities.indexOf(type);
       delete newAmenities[i];
       newAmenities = newAmenities.filter(i => i !== null);
@@ -106,16 +106,29 @@ class Hosting extends React.Component {
   }
 
   handleSubmit(e) {
-    this.props.createProperty(this.state).then(() => this.props.history.push('/'));
+    this.props
+      .createProperty(this.state)
+      .then(() => this.props.history.push("/"));
   }
 
   handleImage(e) {
     e.preventDefault();
     const reader = new FileReader();
+<<<<<<< HEAD
     reader.onload = function(){
       let url = reader.result;
     }
     reader.readAsDataURL(document.getElementById('file').files[0]);
+=======
+    const file = document.getElementById("file").files[0];
+    const formData = new FormData();
+    reader.readAsDataURL(file);
+    formData.append("image", file);
+    axios
+      .post("/api/images/image-upload", formData)
+      .then(res => this.setState({ imageUrl: res.data.imageUrl }))
+      .catch(err => console.log(err));
+>>>>>>> e052c85147b90f3df671d59e34cc885c7195132c
   }
 
   prev() {
@@ -166,12 +179,12 @@ class Hosting extends React.Component {
   progress() {
     let elem = document.getElementById("progress-bar");
     let width = this.move();
-   
+    console.log(width);
     elem.style.width = width;
   }
 
   render() {
-   
+    console.log(this.state);
     return (
       <div className="hosting">
         <div id="progress-bar"></div>

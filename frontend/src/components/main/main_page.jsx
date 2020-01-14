@@ -1,10 +1,8 @@
 import React from 'react';
-import NavBar from '../nav/navbar_container'
-import {Route} from 'react-router-dom'
-import MessagesContainer from '../message/messages_container'
-import ConversationContainer from '../message/conversation_container'
-import Logo from '../logo_dropdown/logo';
+
 import Home from '../home/home_container';
+import Logo from '../logo_dropdown/logo';
+
 import './main.css'
 import PropertyShowContainer from "../reservations/property_show_container";
 
@@ -15,12 +13,16 @@ class MainPage extends React.Component {
         <header>
           <Logo />
           <h1>EndorBnB</h1>
-          <Route path="/" component={NavBar} />
+          <div className="space"></div>
         </header>
+<<<<<<< HEAD
         <Route exact path="/" component={Home} />
         <Route exact path="/messages" component={MessagesContainer} />
         <Route exact path="/messages/*" component={ConversationContainer} />
         <Route exact path="/properties/:propertyId" component={PropertyShowContainer} />
+=======
+        <Home />
+>>>>>>> e052c85147b90f3df671d59e34cc885c7195132c
       </div>
     );
   }

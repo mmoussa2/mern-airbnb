@@ -21,7 +21,7 @@ if(!comment || !author) return null;
     <div className="comment">
       <section className="top">
         <div className="userInfo">
-          <img className="avatar" src="https://res.cloudinary.com/dzeqeo9b3/image/upload/v1501173171/avatar_default_wkpp05.png"/>
+          <img className="avatar" src="https://res.cloudinary.com/dzeqeo9b3/image/upload/v1501173171/avatar_default_wkpp05.png" alt=""/>
             <div>
             <span className="username link">{author.name}</span>
               <br></br>

@@ -5,7 +5,6 @@ import { Switch, Route } from 'react-router-dom';
 import MainPage from './main/main_container';
 import LoginFormContainer from './session/login_form_container';
 import SignupFormContainer from './session/signup_form_container';
-
 import HostingForm from './hosting/hosting_container';
 
 const App = () => (
