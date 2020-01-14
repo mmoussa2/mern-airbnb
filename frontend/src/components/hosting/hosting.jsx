@@ -80,8 +80,8 @@ class Hosting extends React.Component {
 
   handleAmenities(type) {
     let newAmenities = this.state.amenities;
-    console.log(newAmenities);
-    if (newAmenities.includes(type)) {
+ 
+    if(newAmenities.includes(type)){
       const i = newAmenities.indexOf(type);
       delete newAmenities[i];
       newAmenities = newAmenities.filter(i => i !== null);
@@ -112,14 +112,16 @@ class Hosting extends React.Component {
   handleImage(e) {
     e.preventDefault();
     const reader = new FileReader();
-    const file = document.getElementById("file").files[0];
-    const formData = new FormData();
-    reader.readAsDataURL(file);
-    formData.append("image", file);
-    axios
-      .post('/api/images/image-upload', formData)
-      .then(res => this.setState({ imageUrl: res.data.imageUrl }))
-      .catch(err => console.log(err));
+
+    
+
+    reader.onload = function(){
+      let url = reader.result;
+
+    }
+
+    reader.readAsDataURL(files[0]);
+
   }
 
   prev() {
@@ -170,11 +172,12 @@ class Hosting extends React.Component {
   progress() {
     let elem = document.getElementById("progress-bar");
     let width = this.move();
-    console.log(width);
+   
     elem.style.width = width;
   }
 
   render() {
+   
     return (
       <div className="hosting">
         <div id="progress-bar"></div>

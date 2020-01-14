@@ -5,8 +5,9 @@ import {
 
 const _nullErrors = [];
 
-const PropertyErrorsReducer = (state = _nullErrors, action) => {
+const ReservationErrorsReducer = (state = _nullErrors, action) => {
   Object.freeze(state);
+
   switch (action.type) {
     case RECEIVE_RESERVATION_ERRORS:
       return action.errors;
@@ -17,4 +18,4 @@ const PropertyErrorsReducer = (state = _nullErrors, action) => {
   }
 };
 
-export default PropertyErrorsReducer;
+export default ReservationErrorsReducer;
