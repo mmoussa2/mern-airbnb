@@ -16,7 +16,7 @@ class Hosting extends React.Component {
     super(props);
     this.state = {
       owner_id: this.props.currentUser.id,
-      currentStep: 6,
+      currentStep: 0,
       title: "",
       description: "",
       price: 100,

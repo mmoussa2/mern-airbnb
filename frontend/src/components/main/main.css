@@ -1,6 +1,7 @@
 .main-page {
   display: flex;
   flex-direction: column;
+  height: 100vh;
 }
 
 header {
@@ -21,4 +22,8 @@ header h1 {
 header svg {
   width: 80px;
   padding: 0px 20px;
+}
+
+.space {
+  width: 82px;
 }

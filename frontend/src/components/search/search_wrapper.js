@@ -1,14 +1,11 @@
 import React from 'react';
 import SearchFilterContainer from "./search_filter_container"
-import SearchResults from "./search_results"
+import SearchResults from "./search_results.jsx"
 
 class SearchWrapper extends React.Component {
   render() {
     return (
-      <div>
-        <SearchFilterContainer />
-        <SearchResults {...this.props} />
-      </div>
+      <SearchResults {...this.props} />
     );
   }
 }

@@ -6,6 +6,8 @@ import MainPage from './main/main_container';
 import LoginFormContainer from './session/login_form_container';
 import SignupFormContainer from './session/signup_form_container';
 import PropertyShowContainer from './reservations/property_show_container'
+import MessagesContainer from './message/messages_container'
+import ConversationContainer from './message/conversation_container'
 import HostingForm from './hosting/hosting_container';
 import About from './about/about';
 import Profile from './profile/profile_container';
@@ -17,6 +19,8 @@ const App = () => (
       <ProtectedRoute path="/properties/create" component={HostingForm} />
       <Route path="/properties/:propertyId" component={PropertyShowContainer} />
       <Route path="/about" component={About} />
+      <Route exact path="/messages" component={MessagesContainer} />
+      <Route exact path="/messages/*" component={ConversationContainer} />
       <ProtectedRoute path="/profile" component={Profile} /> 
       <ProtectedRoute path="/account" component={Account} /> 
       <AuthRoute exact path="/login" component={LoginFormContainer} />
