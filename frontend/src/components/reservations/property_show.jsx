@@ -9,7 +9,6 @@ import { ProtectedRoute } from '../../util/route_util';
 
 class PropertyShow extends Component {
   componentDidMount() {
-   debugger;
     this.props.fetchProperty(this.props.propertyId);
   }
 
@@ -21,7 +20,8 @@ class PropertyShow extends Component {
 
   render() {
     const { property, images } = this.props;
-    debugger;
+    console.log(this.props)
+    console.log(property)
     if (!property) {
     
       return null;

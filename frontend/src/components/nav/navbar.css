@@ -1,3 +1,11 @@
+.nav-bar {
+  display: flex;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+}
+
 .nav-search-input {
   border: 1px solid rgba(0,0,0,0.2);
   box-shadow: 1px 1px 8px rgba(0,0,0,0.1);
@@ -5,12 +13,7 @@
   border-radius: 2px;
   outline: none;
   transition: 0.60s;
-
-  width: 350px;
-}
-
-.previous-search {
-  
+  max-width: 80%;
 }
 
 .nav-search-input:hover {

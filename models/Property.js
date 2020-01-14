@@ -5,7 +5,7 @@ const Schema = mongoose.Schema;
 
 const PropertySchema = new Schema({
   owner_id: { type: Schema.Types.ObjectId, required: true },
-  cover_picture_id: { type: Schema.Types.ObjectId, required: true },
+  //cover_picture_id: { type: Schema.Types.ObjectId, required: true },
   title: { type: String, required: true },
   description: { type: String, required: true },
   price: { type: Number, required: true },

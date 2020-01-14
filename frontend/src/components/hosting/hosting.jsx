@@ -6,6 +6,7 @@ import StepFour from './step_four';
 import StepFive from './step_five';
 import StepSix from './step-six';
 import StepSeven from './step-seven';
+import StepEight from './step_eight';
 import TopBar from './top_bar';
 import './hosting.css';
 
@@ -13,6 +14,7 @@ class Hosting extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      owner_id: this.props.currentUser.id,
       currentStep: 0,
       title: "",
       description: "",
@@ -102,14 +104,12 @@ class Hosting extends React.Component {
   }
 
   handleSubmit(e) {
-    this.props.createProperty(this.state).then(() => this.props.history.push('/'))
+    this.props.createProperty(this.state)
   }
 
   handleImages(e) {
     const files = Array.from(e.target.files)
     const reader = new FileReader();
-
-    
 
     reader.onload = function(){
       let url = reader.result;
@@ -117,7 +117,6 @@ class Hosting extends React.Component {
     }
 
     reader.readAsDataURL(files[0]);
-
   }
 
   prev() {
@@ -129,7 +128,7 @@ class Hosting extends React.Component {
 
   next() {
     let currentStep = this.state.currentStep;
-    currentStep = currentStep >= 7 ? 7 : currentStep + 1;
+    currentStep = currentStep >= 8 ? 8 : currentStep + 1;
     this.setState({currentStep: currentStep});
     this.progress();
   }
@@ -145,7 +144,7 @@ class Hosting extends React.Component {
   }
 
   nextButton() {
-    if(this.state.currentStep < 7){
+    if(this.state.currentStep < 8){
       return(
         <button className="next-button" onClick={this.next}>
           Next
@@ -175,7 +174,6 @@ class Hosting extends React.Component {
 
   render() {
     console.log(this.state)
-    console.log(this.props)
     return (
       <div className="hosting">
         <div id="progress-bar"></div>
@@ -218,6 +216,9 @@ class Hosting extends React.Component {
           <StepSeven
             currentStep={this.state.currentStep}
             handleChange={this.handleChange}
+          />
+          <StepEight
+            state={this.state}
           />
         </div>
         <div className="hosting-bot-bar">
