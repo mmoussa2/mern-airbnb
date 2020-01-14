@@ -77,7 +77,7 @@ class Message extends React.Component {
               onClick={this.handleConvoClick}
             >
               <div className="convobox-avatar">
-                <img class="convo-avatar" src="https://res.cloudinary.com/dzeqeo9b3/image/upload/v1501173171/avatar_default_wkpp05.png" />
+                <img class="convo-avatar" src="https://res.cloudinary.com/dzeqeo9b3/image/upload/v1501173171/avatar_default_wkpp05.png" alt=""/>
               </div>
               <div className="convobox-name">
                 {this.props.users[conversationUserId].name} <br />

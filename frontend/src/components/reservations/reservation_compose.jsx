@@ -36,7 +36,7 @@ class ReservationForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
   
-    const propertyId = this.props.match.params.propertyId;
+    //const propertyId = this.props.match.params.propertyId;
     const reservation = Object.assign({}, this.state);
 
     this.props.composeReservation(reservation).then((result)=>{

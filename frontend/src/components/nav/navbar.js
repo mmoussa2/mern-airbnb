@@ -108,7 +108,7 @@ export default class NavBar extends React.Component {
       <div className="search">
         <div className="flex space-between align-center nav-bar-wrapper">
 
-            <form 
+            <form className="flex flex-center"
               onSubmit={this.pushToSearch}>
               <input
                 className="nav-search-input p"

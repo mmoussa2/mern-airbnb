@@ -1,5 +1,5 @@
 import React from 'react';
-import SearchFilterContainer from "./search_filter_container"
+//import SearchFilterContainer from "./search_filter_container"
 import SearchResults from "./search_results.jsx"
 
 class SearchWrapper extends React.Component {

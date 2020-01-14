@@ -4,7 +4,7 @@ import { ProtectedRoute } from '../../util/route_util';
 import PropertyDetail from './property_detail.jsx';
 import ReservationFormContainer from './reservation_compose_container';
 import CommentFormContainer from '../comment/comment_form_container';
-import ImageListPropertyContainer from './image_list_property_container';
+// import ImageListPropertyContainer from './image_list_property_container';
 
 
 
