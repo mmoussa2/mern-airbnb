@@ -2,6 +2,7 @@ import React from 'react';
 import NavBar from '../nav/navbar_container'
 import {Route} from 'react-router-dom'
 import MessagesContainer from '../message/messages_container'
+import ConversationContainer from '../message/conversation_container'
 
 class MainPage extends React.Component {
 
@@ -10,9 +11,7 @@ class MainPage extends React.Component {
       <div>
         <Route path="/" component={NavBar} />
         <Route exact path="/messages" component={MessagesContainer} />
-        <footer>
-          Copyright &copy; 2020 EndorBnB
-        </footer>
+        <Route exact path="/messages/*" component={ConversationContainer} />
       </div>
     );
   }

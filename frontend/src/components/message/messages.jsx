@@ -12,7 +12,7 @@ class Message extends React.Component {
 
   handleConvoClick (e) {
     e.preventDefault()
-    console.log(e.currentTarget.id)
+    this.props.history.push(`/messages/${e.currentTarget.id}`)
   }
 
   componentDidMount() {
