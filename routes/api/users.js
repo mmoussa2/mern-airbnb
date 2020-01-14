@@ -17,6 +17,13 @@ router.get('/current', passport.authenticate('jwt', { session: false }), (req, r
     email: req.user.email
   });
 })
+
+router.get('/all', (req, res) => {
+  User.find()
+    .then(users => res.json(users))
+    .catch(err => res.json(err));
+})
+
 router.post('/login', (req, res) => {
   const email = req.body.email;
   const password = req.body.password;

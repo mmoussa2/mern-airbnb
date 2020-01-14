@@ -1,0 +1,45 @@
+.message-wrapper {
+  padding: 20px;
+  font-size: 14px;
+}
+
+.conversation-wrapper {
+  border-bottom: 1px solid rgba(0,0,0,0.3);
+  width: 60vw;
+  min-width: 300px;
+  padding: 30px 30px 20px 30px;
+}
+
+.conversation-wrapper:hover .convobox-options {
+  visibility: visible;
+}
+
+.conversation-wrapper:hover {
+  visibility: visible;
+  cursor: pointer;
+}
+
+.conversation-wrapper: .convobox-options {
+  visibility: visible;
+}
+
+.convobox-avatar {
+  width: 15%;
+}
+
+.convobox-name {
+  width: 15%;
+}
+
+.convobox-message {
+  width: 50%;
+}
+
+.convobox-status {
+  width: 10%;
+}
+
+.convobox-options {
+  width: 10%;
+  visibility: hidden;
+}

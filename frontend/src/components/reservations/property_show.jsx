@@ -38,6 +38,7 @@ class PropertyShow extends Component {
   render() {
     const { property, image, comments } = this.props;
   
+  
     if (!property) {
       return null;
     }

@@ -5,7 +5,7 @@ const Schema = mongoose.Schema;
 
 const PropertySchema = new Schema({
   owner_id: { type: Schema.Types.ObjectId, required: true },
-  cover_picture_id: { type: Schema.Types.ObjectId, required: true },
+  //cover_picture_id: { type: Schema.Types.ObjectId, required: true },
   title: { type: String, required: true },
   description: { type: String, required: true },
   price: { type: Number, required: true },
@@ -17,7 +17,7 @@ const PropertySchema = new Schema({
   bathrooms: { type: Number, required: true },
   amenities: { type: Array },
   spaces: { type: Array },
-  images: { type: Array },
+  imageUrl: { type: String },
 });
 
 module.exports = Property = mongoose.model("Property", PropertySchema);

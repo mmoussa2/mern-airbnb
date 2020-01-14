@@ -1,9 +1,6 @@
-
 import {
   RECEIVE_ALL_USERS
 } from "../actions/users_actions";
-
-
 
 const initialState = {};
 
@@ -15,7 +12,6 @@ export default function (state = initialState, action) {
         newUsers[user._id] = user
       });
       return Object.assign({}, state, newUsers);
-
     default:
       return state;
   }
