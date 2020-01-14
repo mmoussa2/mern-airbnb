@@ -8,7 +8,7 @@ class Home extends React.Component {
     console.log(this.props)
     if (this.props.isAuthenticated){
       return(
-        <div>
+        <div className="center">
           <h2>Welcome, {this.props.currentUser.name}!</h2>
           <div>
             Top-rated experiences

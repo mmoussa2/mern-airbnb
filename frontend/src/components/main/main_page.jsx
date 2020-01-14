@@ -20,7 +20,6 @@ class MainPage extends React.Component {
           Copyright &copy; 2020 EndorBnB
           An AirBnB Clone
         </footer>
-        <Route path="/" component={NavBar} />
         <Route exact path="/messages" component={MessagesContainer} />
         <Route exact path="/messages/*" component={ConversationContainer} />
       </div>
