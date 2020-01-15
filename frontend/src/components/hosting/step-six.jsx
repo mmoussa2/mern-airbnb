@@ -4,9 +4,9 @@ function StepSix(props) {
   if (props.currentStep === 6) {
     return (
       <div>
-        <form>
-          <input type="file" id="file" />
-          <button onClick={props.handleImage}>upload</button>
+        <form className="upload">
+          <input className="upload-button" type="file" id="file" />
+          <button className="upload-button" onClick={props.handleImage}>upload</button>
         </form>
       </div>
     );

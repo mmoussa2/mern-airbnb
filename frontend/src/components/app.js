@@ -15,8 +15,8 @@ const App = () => (
     <Switch>
       <ProtectedRoute path="/properties/create" component={HostingForm} />
       <Route path="/properties/:propertyId" component={PropertyShowContainer} />
-      <Route exact path="/messages" component={MessagesContainer} />
-      <Route exact path="/messages/*" component={ConversationContainer} />
+      <ProtectedRoute exact path="/messages" component={MessagesContainer} />
+      <ProtectedRoute exact path="/messages/*" component={ConversationContainer} />
       <AuthRoute exact path="/login" component={LoginFormContainer} />
       <AuthRoute exact path="/signup" component={SignupFormContainer} />
       <Route path="/" component={MainPage} />
