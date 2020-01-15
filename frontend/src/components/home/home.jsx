@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from "react-router-dom";
+import { Route, Link } from "react-router-dom";
 
 import Nav from '../nav/navbar_container';
 import './home.css';
@@ -11,7 +11,7 @@ class Home extends React.Component {
         <div className="center">
           <h2>Welcome, {this.props.currentUser.name}!</h2>
           <div className="divider"></div>
-          <Nav />
+          <Route path="/" component={Nav} />
         </div>
       )
     }

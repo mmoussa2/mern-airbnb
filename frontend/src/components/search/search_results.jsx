@@ -16,8 +16,9 @@ class NavBar extends React.Component {
   }
 
   render() {
+    console.log(this.props)
       return (
-        <div className="search-results flex flex-wrap">
+        <div className="search-results">
           {this.props.properties.map((property, index) => {
             return (
               <div
@@ -27,22 +28,20 @@ class NavBar extends React.Component {
                 key={index}
               >
                 <div>
-                  <img
-                    className="search-result-image"
-                    src={property.imageUrl}
-                  />
-                </div>
-                <div className="">
-                  <div>Treehouse</div>&nbsp;
-                  <div>
-                    {property.beds > 1
-                      ? property.beds + " beds"
-                      : property.beds + " bed"}{" "}
+                  <div className="card">
+                    <img src={property.imageUrl} alt="" />
+                    <div className="container">
+                      <h2>{property.title}</h2>
+                      <h4>${property.price} / night</h4>
+                      <h4>{property.location}</h4>
+                      <h4>
+                        {property.beds > 1
+                          ? property.beds + " beds"
+                          : property.beds + " bed"}{" "}
+                      </h4>
+                    </div>
                   </div>
                 </div>
-                <div>{property.title}</div>
-                <div>${property.price} / night</div>
-                <div>{property.location}</div>
               </div>
             );
           })}

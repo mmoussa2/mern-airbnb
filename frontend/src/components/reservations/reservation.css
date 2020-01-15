@@ -234,8 +234,8 @@ overflow-wrap: break-word !important;
 }
 
 .img{
-     width: 100%;
-  height:200px;
+  width: auto;
+  height: 400px;
  
 }
 .img ul{
