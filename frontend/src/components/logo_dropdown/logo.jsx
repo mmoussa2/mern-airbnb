@@ -12,6 +12,9 @@ class LogoDrop extends React.Component {
     this.handleClick = this.handleClick.bind(this);
   }
 
+  componentWillUnmount() {
+    this.setState({dropped: false})
+  }
 
   drop() {
     if (this.state.dropped){

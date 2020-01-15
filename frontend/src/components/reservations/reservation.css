@@ -83,18 +83,6 @@
     padding: 10px;
 }
 
-.propertyDetailComponent {
-    width: 100%;
-    float: left;
-    margin-bottom: 20px;
-    padding-top: 20px;
-    padding-bottom: 25px;
-    padding-left: 30px;
-    padding-right: 30px;
-
-    border-radius: 2px;
-    background-color: white;
-}
 .propertyDetails{
   width:calc(100vw - 266px);
 }
@@ -233,11 +221,18 @@ overflow-wrap: break-word !important;
   background-color: rgb(255, 90, 95);
 }
 
-.img{
+.propertyDetailComponent {
+  width: 100vw;
+  margin: 20px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.propertyDetailComponent img{
   width: auto;
   height: 400px;
- 
 }
+
 .img ul{
   width: 100%;
     float: left;
