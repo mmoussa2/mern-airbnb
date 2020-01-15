@@ -38,15 +38,16 @@ class CommentForm extends React.Component {
 
   renderErrors() {
     //  if (!this.props.errors) return null;
-    return (
-      <ul>
-        {Object.keys(this.props.errors).map((error, i) => (
-          <li key={`error-${i}`}>
-            {this.props.errors[error]}
-          </li>
-        ))}
-      </ul>
-    );
+    let errors = this.props.errors
+    if (typeof this.props.errors === "string") {
+      errors = [errors];
+    }
+    return Object.keys(errors).map((error, i) => (
+        <li key={`error-${i}`}>
+          {this.props.errors[error]}
+        </li>
+      ))
+    ;
   }
 
   update(property) {
@@ -73,7 +74,9 @@ class CommentForm extends React.Component {
             Submit
           </button>
         </form>
-        {this.renderErrors()} 
+        <ul>
+          {this.renderErrors()} 
+        </ul>
       </div>
     );
   }
