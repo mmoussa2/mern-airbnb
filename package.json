@@ -47,13 +47,10 @@
   },
   "devDependencies": {
     "nodemon": "^2.0.2"
-  }
-  ,
+  },
   "proxy": {
     "/api/*": {
       "target": "http://[::1]:8080"
     }
   }
-  
-  
 }
