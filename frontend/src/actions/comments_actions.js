@@ -22,17 +22,17 @@ export const receiveErrors = errors => ({
 
 export const createComment= comment => dispatch =>(
   APIUtil.create(comment)
-         .then(comment => dispatch(receiveComment(comment.data)),
-                   err => {
-                     return dispatch(receiveErrors(err.response.data))}
+    .then(
+      comment => dispatch(receiveComment(comment.data)),
+      err => dispatch(receiveErrors(err.response.data))
    )
 );
 
 
 export const fetchPropertyComments = (propertyId) => dispatch =>(
    APIUtil.fetchComments(propertyId)
-    .then(comments => {
-       return dispatch(receivePropertyComments(comments.data))},
+    .then(
+      comments => dispatch(receivePropertyComments(comments.data)),
        err => dispatch(receiveErrors(err.response.data))
     )
 );
