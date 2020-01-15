@@ -114,12 +114,6 @@ class Hosting extends React.Component {
   handleImage(e) {
     e.preventDefault();
     const reader = new FileReader();
-<<<<<<< HEAD
-    reader.onload = function(){
-      let url = reader.result;
-    }
-    reader.readAsDataURL(document.getElementById('file').files[0]);
-=======
     const file = document.getElementById("file").files[0];
     const formData = new FormData();
     reader.readAsDataURL(file);
@@ -128,7 +122,6 @@ class Hosting extends React.Component {
       .post("/api/images/image-upload", formData)
       .then(res => this.setState({ imageUrl: res.data.imageUrl }))
       .catch(err => console.log(err));
->>>>>>> e052c85147b90f3df671d59e34cc885c7195132c
   }
 
   prev() {
