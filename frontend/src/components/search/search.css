@@ -21,7 +21,7 @@
 }
 
 .search-results {
-  width: inherit;
+  width: 100vw;
   display: flex;
   flex-wrap: wrap;
 }
@@ -31,6 +31,7 @@
   margin: 20px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   transition: 0.3s;
+  border-radius: 5px;
 }
 
 .card:hover {
@@ -41,6 +42,7 @@
   width: 320px;
   height: auto;
   max-height: 250px;
+  border-radius: 5px 5px 0 0;
 }
 
 .container {
