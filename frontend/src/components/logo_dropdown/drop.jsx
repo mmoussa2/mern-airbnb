@@ -8,13 +8,8 @@ function Dropdown(props) {
   return(
     <div className="dropdown">
       <Link to="/">Home</Link>
-      <Link to="/profile">Profile</Link>
-      <Link to="/account">Account</Link>
-      <Link to="/trips">Trips</Link>
-      <Link to="/dash">Dashboard</Link>
       <Link to="/messages">Messages</Link>
       <Link to="/properties/create">Host</Link>
-      <Link to="/about">About</Link>
       <Link to="/" onClick={props.logout}>Log out</Link>
     </div>
   )
