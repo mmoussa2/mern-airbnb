@@ -1,4 +1,4 @@
-import { RECEIVE_SEARCH_CREATE, RECEIVE_ALL_SEARCHES } from "../actions/searches_actions";
+import { RECEIVE_ALL_SEARCHES, RECEIVE_SEARCH } from "../actions/searches_actions";
 
 const initialState = {
 
@@ -6,7 +6,7 @@ const initialState = {
 
 export default function (state = initialState, action) {
   switch (action.type) {
-    case RECEIVE_SEARCH_CREATE:
+    case RECEIVE_SEARCH:
       return Object.assign({}, state, action.search);
     case RECEIVE_ALL_SEARCHES:
       return Object.assign({}, state, action.searches);

@@ -14,8 +14,11 @@ export default class NavBar extends React.Component {
     this.pushToSearch = this.pushToSearch.bind(this);
 
     this.state = {
-      search: ""
+      search: "",
+      oldSearch: undefined
     }
+
+
   }
 
   componentDidMount () {
@@ -90,15 +93,19 @@ export default class NavBar extends React.Component {
     this.props.history.push("/s")
   }
 
+
+
   findFilteredProperties () {
-    if (this.props.properties) {
-      const regexSearch = new RegExp(this.state.search, "i")
-      const appliedFilters = Object.values(this.props.properties)
-        .filter(property => {
-          return regexSearch.test(property.location);
-      })
-      return appliedFilters
-    }    
+      if (this.state.oldSearch !== this.state.search) {
+        return this.props.getSearch({ search: this.state.search }).then(searches => {
+        if (searches) {
+          this.setState({oldSearch: this.state.search})
+          return searches.search;
+        } else {
+          return {};
+        }
+      });
+      }
   }
   
   render() {

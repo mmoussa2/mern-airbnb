@@ -7,3 +7,7 @@ export const create = searchData => {
 export const all = () => {
   return axios.get("/api/searches/all");
 };
+
+export const search = search => {
+  return axios.post("/api/searches/search", search)
+}

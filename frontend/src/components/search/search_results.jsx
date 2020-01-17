@@ -7,19 +7,29 @@ class NavBar extends React.Component {
     super(props)
 
     this.browseToProperty = this.browseToProperty.bind(this)
+
+    this.state = {
+      properties: {}
+    }
+
   }
 
   browseToProperty (e) {
     e.preventDefault()
-    console.log(e.currentTarget)
     this.props.history.push(`/properties/${e.currentTarget.id}`)
   }
 
   render() {
-    console.log(this.props)
+    if (this.props.properties) {
+      this.props.properties.then(result => {
+        return this.setState({ properties: result });
+      });
+    }
+
+    if (Object.values(this.state.properties).length === 0) return null
       return (
         <div className="search-results">
-          {this.props.properties.map((property, index) => {
+          {Object.values(this.state.properties).map((property, index) => {
             return (
               <div
                 id={property._id}
