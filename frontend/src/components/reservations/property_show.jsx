@@ -38,7 +38,7 @@ class PropertyShow extends Component {
   render() {
     const { property, image, comments } = this.props;
   
-  
+
     if (!property) {
       return null;
     }
@@ -51,7 +51,7 @@ class PropertyShow extends Component {
         </div>
         <div className="propertyDetailComponent flex">
            <div className="propertyDetails"> 
-            <PropertyDetail property={property} comments={comments} />
+            <PropertyDetail key={property._id} property={property} comments={comments}  />
          
             <ProtectedRoute
               path="/properties/:propertyId/"

@@ -20,13 +20,14 @@ export const receiveErrors = errors => ({
   errors
 });
 
-export const createComment= comment => dispatch =>(
-  APIUtil.create(comment)
+export const createComment= comment => dispatch =>{
+  return APIUtil.create(comment)
          .then(comment => dispatch(receiveComment(comment.data)),
                    err => {
+                     console.log(err);
                      return dispatch(receiveErrors(err.response.data))}
    )
-);
+                   };
 
 
 export const fetchPropertyComments = (propertyId) => dispatch =>(

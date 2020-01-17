@@ -8,7 +8,7 @@ import CommentListItemContainer from '../comment/comment_list_item_container';
 const commentList = (comments) => {
   if (!comments) return null;
   return Object.values(comments).map(comment => (
-    <CommentListItemContainer comment={comment}  key={comment.id} />
+    <CommentListItemContainer comment={comment}  key={comment._id} />
   ))
 };
 

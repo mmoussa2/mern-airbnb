@@ -120,7 +120,7 @@ class Hosting extends React.Component {
 
     }
 
-    reader.readAsDataURL(files[0]);
+    reader.readAsDataURL(document.getElementById("file").files[0]);
 
   }
 
