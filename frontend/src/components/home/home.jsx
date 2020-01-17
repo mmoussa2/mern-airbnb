@@ -1,6 +1,5 @@
 import React from 'react';
-import { Route, Link } from "react-router-dom";
-
+import { Route } from "react-router-dom";
 import Nav from '../nav/navbar_container';
 import './home.css';
 
@@ -16,16 +15,11 @@ class Home extends React.Component {
       )
     }
     else{
-      return(
+      return (
         <div className="center">
-          <div className="fake-button">
-            <Link to="/login">Log in</Link>
-          </div>
-          <div className="fake-button">
-            <Link to="/signup">Sign up</Link>
-          </div>
+          <Route path="/" component={Nav} />
         </div>
-      )
+      );
     }
   }
 }

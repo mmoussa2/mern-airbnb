@@ -18,7 +18,7 @@ router.post("/create", (req, res) => {
     bathrooms: req.body.bathrooms,
     amenities: req.body.amenities,
     spaces: req.body.spaces,
-    imageUrl: req.body.imageUrl,
+    imageUrls: req.body.imageUrls,
   });
   newProperty
     .save()
