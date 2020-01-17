@@ -105,10 +105,10 @@ export default class NavBar extends React.Component {
     if (!this.props.properties) return null;
     if (!this.props.searches) return null;
     return (
-      <div>
+      <div className="search">
         <div className="flex space-between align-center nav-bar-wrapper">
 
-            <form 
+            <form className="flex flex-center"
               onSubmit={this.pushToSearch}>
               <input
                 className="nav-search-input p"
@@ -126,7 +126,7 @@ export default class NavBar extends React.Component {
             </form>
         </div>
         <Route
-          path='/s/'
+          path='/'
           render={() => <SearchWrapperContainer properties={this.findFilteredProperties()} search={this.state.search} history={this.props.history} />}
         />
       </div>

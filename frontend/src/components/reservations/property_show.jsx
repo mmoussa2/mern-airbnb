@@ -4,9 +4,6 @@ import { ProtectedRoute } from '../../util/route_util';
 import PropertyDetail from './property_detail.jsx';
 import ReservationFormContainer from './reservation_compose_container';
 import CommentFormContainer from '../comment/comment_form_container';
-import ImageListPropertyContainer from './image_list_property_container';
-
-
 
 class PropertyShow extends Component {
   componentDidMount() {
@@ -27,14 +24,6 @@ class PropertyShow extends Component {
     }
   }
 
-  //  imageList = (images) => {
-
-  //   if (!images) return null;
-  //   return images.map(image => (
-  //     <ImageListPropertyContainer image={image} key={image.id} />
-  //   ))
-  // }
-
   render() {
     const { property, image, comments } = this.props;
   
@@ -45,7 +34,6 @@ class PropertyShow extends Component {
     return (
       <div >
         <div className="propertyDetailComponent"> 
-          {/* <header class="siteHeader"> */}
             <img className="img" src={image} alt={property.description} />
           {/* </header> */}
         </div>
@@ -55,15 +43,17 @@ class PropertyShow extends Component {
          
             <ProtectedRoute
               path="/properties/:propertyId/"
-              component={CommentFormContainer}
-            />
-          </div>
-           <div className="reservationComponent">
-            <ProtectedRoute
-              path="/properties/:propertyId/"
               component={ReservationFormContainer}
             />
-          </div>
+
+            <PropertyDetail property={property} comments={comments} />
+         
+            <ProtectedRoute
+              path="/properties/:propertyId/"
+              component={CommentFormContainer}
+            />
+
+        </div>
         </div>
       </div>
     );

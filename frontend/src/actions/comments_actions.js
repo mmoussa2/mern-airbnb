@@ -24,7 +24,6 @@ export const createComment= comment => dispatch =>{
   return APIUtil.create(comment)
          .then(comment => dispatch(receiveComment(comment.data)),
                    err => {
-                     console.log(err);
                      return dispatch(receiveErrors(err.response.data))}
    )
                    };
@@ -32,8 +31,8 @@ export const createComment= comment => dispatch =>{
 
 export const fetchPropertyComments = (propertyId) => dispatch =>(
    APIUtil.fetchComments(propertyId)
-    .then(comments => {
-       return dispatch(receivePropertyComments(comments.data))},
+    .then(
+      comments => dispatch(receivePropertyComments(comments.data)),
        err => dispatch(receiveErrors(err.response.data))
     )
 );

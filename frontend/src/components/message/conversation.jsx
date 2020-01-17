@@ -86,7 +86,7 @@ class Message extends React.Component {
           return (
               <div className="flex p" key={index}>
                 <div className="p">
-                <img class="convo-avatar" src="https://res.cloudinary.com/dzeqeo9b3/image/upload/v1501173171/avatar_default_wkpp05.png" />
+                <img className="convo-avatar" src="https://res.cloudinary.com/dzeqeo9b3/image/upload/v1501173171/avatar_default_wkpp05.png" alt="" />
                 </div>
                 <div className="p">
                   <div>

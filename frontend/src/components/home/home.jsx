@@ -1,18 +1,17 @@
 import React from 'react';
-import { Link } from "react-router-dom";
+import { Route, Link } from "react-router-dom";
 
+import Nav from '../nav/navbar_container';
 import './home.css';
 
 class Home extends React.Component {
   render() {
-    console.log(this.props)
     if (this.props.isAuthenticated){
       return(
         <div className="center">
           <h2>Welcome, {this.props.currentUser.name}!</h2>
-          <div>
-            Top-rated experiences
-          </div>
+          <div className="divider"></div>
+          <Route path="/" component={Nav} />
         </div>
       )
     }

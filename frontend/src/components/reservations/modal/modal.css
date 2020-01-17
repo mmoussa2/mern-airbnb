@@ -63,8 +63,8 @@ body{
 .form-modal {
     background-color: white;
     width: 300px;
-    text-align: center;
-    border: 2px solid black;
+    
+    border: 1px solid black;
     padding: 25px;
     border-radius: 8px;
     box-sizing: border-box;
