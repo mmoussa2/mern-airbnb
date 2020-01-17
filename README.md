@@ -1,4 +1,4 @@
-# StrifeChat Overview
+# EndorBnB Overview
 ## Introduction
 Link: [Endorbnb](https://endorbnb.herokuapp.com/)  
 Everyone has an inner child that deserves to rent a treehouse once in awhile.  

@@ -8,7 +8,6 @@ import StepFive from "./step_five";
 import StepSix from "./step-six";
 import StepSeven from "./step-seven";
 import StepEight from "./step_eight";
-import TopBar from "./top_bar";
 import "./hosting.css";
 
 class Hosting extends React.Component {
@@ -61,21 +60,33 @@ class Hosting extends React.Component {
   }
 
   handleGuests(type) {
-    this.setState(prev => ({
-      guests: type === "sub" ? prev.guests - 1 : prev.guests + 1
-    }));
+    this.setState(prev => {
+      if (prev.guests === 0) {
+        return { guests: type === "sub" ? prev.guests : prev.guests + 1 };
+      } else {
+        return { guests: type === "sub" ? prev.guests - 1 : prev.guests + 1 };
+      }
+    });
   }
 
   handleBeds(type) {
-    this.setState(prev => ({
-      beds: type === "sub" ? prev.beds - 1 : prev.beds + 1
-    }));
+    this.setState(prev => {
+      if (prev.beds === 0) {
+        return { beds: type === "sub" ? prev.beds : prev.beds + 1 };
+      } else {
+        return { beds: type === "sub" ? prev.beds - 1 : prev.beds + 1 };
+      }
+    });
   }
 
   handleBathrooms(type) {
-    this.setState(prev => ({
-      bathrooms: type === "sub" ? prev.bathrooms - 0.5 : prev.bathrooms + 0.5
-    }));
+    this.setState(prev => {
+      if (prev.bathrooms === 0) {
+        return { bathrooms: type === "sub" ? prev.bathrooms : prev.bathrooms + 0.5 };
+      } else {
+        return { bathrooms: type === "sub" ? prev.bathrooms - 0.5 : prev.bathrooms + 0.5 };
+      }
+    });
   }
 
   handleAmenities(type) {
@@ -172,16 +183,13 @@ class Hosting extends React.Component {
   progress() {
     let elem = document.getElementById("progress-bar");
     let width = this.move();
-    console.log(width);
     elem.style.width = width;
   }
 
   render() {
-    console.log(this.state);
     return (
       <div className="hosting">
         <div id="progress-bar"></div>
-        <TopBar />
         <div className="hosting-content">
           {this.stepZero()}
           <StepOne
