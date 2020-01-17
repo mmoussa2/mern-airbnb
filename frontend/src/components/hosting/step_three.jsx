@@ -5,10 +5,10 @@ function StepThree(props) {
     return (
       <div className="step-three">
         <h2>Where's your place located?</h2>
-        <h4>
+        <h5>
           Guests will only get your exact address once they've booked a
           reservation.
-        </h4>
+        </h5>
         <form>
           <textarea
             type="text"
