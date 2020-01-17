@@ -1,0 +1,44 @@
+.menu-options {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+}
+
+.menu-options a {
+  display: block;
+  text-decoration: none;
+  color: rgb(72, 72, 72);
+  padding: 20px 0;
+}
+
+.menu-options a:hover {
+  background-color: rgb(240, 240, 240);
+}
+
+.menu-button {
+  cursor: pointer;
+}
+
+.bar {
+  width: 35px;
+  height: 5px;
+  background-color: #333333;
+  margin: 6px 0;
+  transition: 0.4s
+}
+
+.change1 {
+  -webkit-transform: rotate(-45deg) translate(-9px, 6px);
+  transform: rotate(-45deg) translate(-9px, 6px);
+}
+
+.change2 {
+  visibility: hidden;
+  transition: 0s;
+}
+
+.change3 {
+  -webkit-transform: rotate(45deg) translate(-8px, -8px);
+  transform: rotate(45deg) translate(-8px, -8px);
+}
