@@ -2,7 +2,6 @@ import React from 'react';
 import NavBar from '../nav/navbar_container'
 import { Route } from 'react-router-dom'
 import { Link } from "react-router-dom";
-import Logo from '../logo_dropdown/logo';
 import './profile.css'
 
 
@@ -11,7 +10,6 @@ class Profile extends React.Component {
     return(
       <div className="profile">
         <header>
-          <Logo />
           <Route path="/" component={NavBar} />
         </header>
         <div className="info-card1">

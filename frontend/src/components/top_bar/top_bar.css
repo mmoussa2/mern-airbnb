@@ -1,0 +1,19 @@
+.top-bar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgb(240, 240, 240);
+}
+
+.top-bar-element {
+  width: 100px;
+}
+
+.top-bar h1 {
+  color: rgb(0, 132, 137);
+}
+
+.top-bar svg {
+  width: 80px;
+}

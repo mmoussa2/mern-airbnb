@@ -8,8 +8,6 @@ const SVG = () => (
     xmlnsXlink="http://www.w3.org/1999/xlink"
     x="0px"
     y="0px"
-    width="192px"
-    height="192px"
     viewBox="0 0 192 192"
     enableBackground="new 0 0 192 192"
     xmlSpace="preserve"
