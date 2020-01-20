@@ -1,8 +1,7 @@
 import axios from "axios";
 
-export const create = commentData =>{
-  
-  return axios.post('/api/comments/create',commentData);
+export const create =  commentData =>{
+  return axios.post('/api/comments/create', commentData);
 };
 
 export const all = ()=>{

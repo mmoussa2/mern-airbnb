@@ -34,20 +34,17 @@ class PropertyShow extends Component {
     return (
       <div >
         <div className="propertyDetailComponent"> 
-            <img className="img" src={image} alt={property.description} />
-          {/* </header> */}
+          <img className="headerImage" src={image} alt={property.description} />
         </div>
         <div className="propertyDetailComponent flex">
            <div className="propertyDetails"> 
             <PropertyDetail key={property._id} property={property} comments={comments}  />
-         
-            <ProtectedRoute
-              path="/properties/:propertyId/"
-              component={ReservationFormContainer}
-            />
-
-            <PropertyDetail property={property} comments={comments} />
-         
+       
+              <ProtectedRoute
+                path="/properties/:propertyId/"
+                component={ReservationFormContainer}
+              />
+      
             <ProtectedRoute
               path="/properties/:propertyId/"
               component={CommentFormContainer}

@@ -21,12 +21,16 @@ export const receiveErrors = errors => ({
 });
 
 export const createComment= comment => dispatch =>{
+  
   return APIUtil.create(comment)
-         .then(comment => dispatch(receiveComment(comment.data)),
-                   err => {
-                     return dispatch(receiveErrors(err.response.data))}
-   )
-                   };
+    .then(comment =>{
+      
+      dispatch(receiveComment(comment.data))},
+      err => {
+        return dispatch(receiveErrors(err.response.data))
+      }
+    ) 
+ };
 
 
 export const fetchPropertyComments = (propertyId) => dispatch =>(

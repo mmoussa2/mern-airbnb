@@ -2,6 +2,7 @@ const Validator = require("validator");
 const validText = require("./valid-text");
 
   module.exports = function validateCommentInput(data) {
+
   let errors = {};
 
   // data.user_id = validText(data.user_id) ? data.user_id : "";

@@ -13,7 +13,7 @@ body{
   width:94%;
   margin:0 auto;
 }
-
+/*
 .modal{
   background:rgba(0, 0, 0, .8);
   position: fixed;
@@ -30,7 +30,7 @@ body{
 }
 
 .modal_content{
-    display: table-cell;
+  display: table-cell;
   vertical-align:middle;
   width:60%;
   min-width:300px;
@@ -50,7 +50,7 @@ body{
   
 } 
 
-.modal-background {
+.modal {
     position: fixed;
     top: 0;
     bottom: 0;
@@ -60,7 +60,7 @@ body{
     z-index: 10;
 }
 
-.form-modal {
+ .modal-content {
     background-color: white;
     width: 300px;
     
@@ -68,6 +68,80 @@ body{
     padding: 25px;
     border-radius: 8px;
     box-sizing: border-box;
-        /* display: table-cell; */
-  vertical-align:middle;
+        display: table-cell;
+   vertical-align:middle;
+} 
+  */
+
+
+ /* button{
+ 
+  font-size: 16px;
+  font-weight: 700;
+  border-radius: 2px;
+  border-width: 0px;
+  margin: 20px;
+  letter-spacing: 2px;
+  width: 150px;
+  padding: 16px 48px 12px;
+  white-space: normal;
+  color: white;
+  background-color: rgb(255, 90, 95);
+} */
+
+
+.modal {
+  position: fixed;
+  z-index: 1;
+  background-color: rgba(0, 0, 0, 0.3);
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+    
+    /* z-index: 10; */
+} 
+.modal-content {
+  background-color: #FEFEFE;
+  /* margin: 15% auto; */
+  border: 1px solid #888;
+  padding: 20px;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+
+  margin: 0 auto;
+  max-width: 500px;
+  min-height: 200px;
+
+  position: relative;
+}
+.modal-content h1 {
+  color: rgb(72, 72, 72);
+  padding: 20px 20px 60px 20px;
+}
+.model-footer{
+  position: absolute;
+  bottom: 30px;
+}
+.model-footer button{
+  font-size: 10px;
+  font-weight: 700;
+  border-radius: 2px;
+  border-width: 0px;
+  margin: 5px;
+  letter-spacing: 2px;
+  width: 75px;
+  padding: 8px 16px 6px;
+  white-space: normal;
+  color: white;
+  background-color: rgb(255, 90, 95);
+ 
 }

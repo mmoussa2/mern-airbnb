@@ -6,6 +6,7 @@ import React from 'react';
 import CommentListItemContainer from '../comment/comment_list_item_container';
 
 const commentList = (comments) => {
+  
   if (!comments) return null;
   return Object.values(comments).map(comment => (
     <CommentListItemContainer comment={comment}  key={comment._id} />
@@ -20,20 +21,18 @@ class PropertyDetail extends React.Component {
     return (
       <div className="mainPropertyDetails" >
         <br />
-        <div className="propertyDetail" >
-          <div>
-            <h1>{property.title}</h1>
-          </div>
-          <br></br>
-      
-          </div>
+          <h1 className="propertyDetail" >{property.title}</h1>
+            <br></br>
+        
           <div>
             <span className="preData">
               {property.location}
             </span>
           </div>
-          <br></br>
-          <div className="preDataColloection">
+        <div className="seperator">
+
+        </div>
+        <div className="preDataCollection">
           <span className="preData">
             {property.baths_type} baths
             </span>
@@ -65,9 +64,13 @@ class PropertyDetail extends React.Component {
 
         </div>
         <div className="reviews">
+          <br></br>
           <h2>Reviews</h2>
+          <br></br>
           {(Object.values(comments).length === 0) ? <p>{"No reviews"}</p>  : commentList(comments)}
+          
         </div>
+       
       </div>
     );
   }

@@ -3,12 +3,12 @@
 }
 
 .lblReservationForm{
-  font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif !important;
-    font-size: 12px !important;
-    font-weight: 600 !important;
-    line-height: 1.33333em !important;
-    color: rgb(72, 72, 72) !important;
-    margin: 0px !important;
+  font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif ;
+    font-size: 12px ;
+    /* font-weight: 600 !important; */
+    line-height: 1.33333em ;
+    color: rgb(72, 72, 72) ;
+    margin: 0px ;
     display: inline;
 }
 
@@ -18,16 +18,6 @@
 .total{
   padding-left: 200px;
   }
-
-
-.reservation-form {
-  padding-right: 30px;
-  display: flex;
-  flex-direction: column;
-  border: 1px solid lightgray;
-  width: 300px;
-  float: right;
-}
 
  .reservation-form form {
   padding: 15px;
@@ -83,36 +73,74 @@
     padding: 10px;
 }
 
-.propertyDetails{
-  width:calc(100vw - 266px);
-}
-
 .reservationComponent {
   width: 200px;
 }
 
-.propertyImages{
-  width:100%; 
-  height: 250px; 
-  display: block; 
-  background-color: rgb(255, 90, 95);
+.reservation-form {
+  padding-right: 30px;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid lightgray;
+  width: 300px;
+  position: absolute;
+  top:490px;
+  right:50px;
+  
 }
 
-.preDataColloection{
-  padding-left: 15px;
+
+.propertyDetailComponent {
+   display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+
+
 }
+
+.headerImage{
+  width: 100%;
+  height:300px;
+  transition: transform 0.9s; 
+  cursor: pointer;
+  margin: 0 auto;
+  border: 1px solid #EBEBEB ;
+  border-radius: 1px !important;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1) !important;
+   /* object-fit: contain; */
+  
+}
+.headerImage:hover {
+  -ms-transform: scale(1.1); 
+  -webkit-transform: scale(1.1); 
+  transform: scale(1.1);
+}
+
+.propertyDetails{
+  /* width:calc(100vw - 266px); */
+  width:100%;
+  
+}
+
+
 
 .preData{
   overflow-wrap: break-word !important;
     font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif !important;
-    font-size: 16px !important;
+    font-size: 16px ;
     font-weight: 400 !important;
     line-height: 1.375em !important;
     color: rgb(72, 72, 72) !important;
     margin: 0px !important;
     padding-left: 10px;
+  
 }
 
+
+.mainPropertyDetails{
+   width: calc(100% - 380px);
+}
 
 .seperator{
   margin-top: 16px; 
@@ -122,9 +150,8 @@
 }
 
 .comment {
-  
     margin-bottom: 20px;
-    width: 100%;
+     /* width: calc(100% - 250px); */
     min-height: 100px;
     padding-top: 20px;
     padding-bottom: 25px;
@@ -191,7 +218,7 @@ overflow-wrap: break-word !important;
     color: rgb(72, 72, 72) !important;
     margin: 0px !important;
   
-    width: 100%;
+    width: calc(100% - 390px);
     height: 150px;
     padding-top: 10px;
     padding-bottom: 10px;
@@ -202,36 +229,6 @@ overflow-wrap: break-word !important;
  
 }
 
-.mainPropertyDetails{
-   width: calc(100% - 250px);
-}
-
-.review button{
- 
-  font-size: 16px;
-  font-weight: 700;
-  border-radius: 2px;
-  border-width: 0px;
-  margin: 20px;
-  letter-spacing: 2px;
-  width: 150px;
-  padding: 16px 48px 12px;
-  white-space: normal;
-  color: white;
-  background-color: rgb(255, 90, 95);
-}
-
-.propertyDetailComponent {
-  width: 100vw;
-  margin: 20px;
-  display: flex;
-  flex-wrap: wrap;
-}
-
-.propertyDetailComponent img{
-  width: auto;
-  height: 400px;
-}
 
 .img ul{
   width: 100%;
@@ -241,7 +238,6 @@ overflow-wrap: break-word !important;
     padding-bottom: 25px;
     padding-left: 30px;
     padding-right: 30px;
-
     border-radius: 2px;
     background-color: white;
 }

@@ -1,31 +1,30 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import Modal from 'react-modal';
+import Modal from 'react-modal'; 
 import  '../modal/modal.css';
 
-const customStyles = {
-  content: {
-    top: '50%',
-    left: '50%',
-    right: 'auto',
-    bottom: 'auto',
-    marginRight: '-50%',
-    transform: 'translate(-50%, -50%)',
 
-  }
-};
+// const customStyles = {
+//   content: {
+//     top: '50%',
+//     left: '50%',
+//     right: 'auto',
+//     bottom: 'auto',
+//     marginRight: '-50%',
+//     transform: 'translate(-50%, -50%)',
+//   }
+// };
 
 function ExampleApp3(props) {
 
   var subtitle;
   const [modalIsOpen, setIsOpen] = React.useState(false);
+  
   function openModal() {
     setIsOpen(true);
   }
 
   function afterOpenModal() {
-  
-    { (Object.values(props.errors).length === 0) ? subtitle.style.color = '#009A00' : subtitle.style.color = '#f00' }
+    subtitle.style.color = '#f00' 
   }
 
   function closeModal() {
@@ -33,7 +32,7 @@ function ExampleApp3(props) {
   }
 
   const renderErrors = ()=> {
-    if (!props.errors) return [];
+    if (props.errors.length === 0) return [];
     return (
       <ul>
         {Object.keys(props.errors).map((error, i) => (
@@ -45,31 +44,28 @@ function ExampleApp3(props) {
     );
   }
 
-
   return (
     <div >
       <button onClick={openModal}>Submit</button>
-      <Modal className="modal-background"
+      
+      <Modal className="modal"
         isOpen={modalIsOpen}
         onAfterOpen={afterOpenModal}
         onRequestClose={closeModal}
-        // style={customStyles}
+        //  style={customStyles}
         contentLabel="Example Modal"
         ariaHideApp={false}
       >
-        <div className="form-modal">
-
-          <h2 ref={_subtitle => (subtitle = _subtitle)} >
-            {(Object.values(props.errors).length === 0) ? "Success" : "Error"}
-          </h2>
+        <div className="modal-content">
+       
           <button  onClick={closeModal}>close</button >
           <div >
-            {(Object.values(props.errors).length === 0) ? <p>{"Thank you"}</p> : renderErrors()}
+            <h1 ref={_subtitle => (subtitle = _subtitle)}  >
+              {props.errors ? "Success" : "Error"}
+            </h1>
+            {props.errors ? this.renderErrors() :<p>{"Thank you"}</p>}
           </div>
-
       </div >
-
-    
       </Modal>
     </div>
   );
