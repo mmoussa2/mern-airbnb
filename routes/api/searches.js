@@ -18,6 +18,12 @@ router.post("/create", (req, res) => {
     .catch(err => res.json(err));
 });
 
+router.post("/search", (req, res) => {
+  Property.find({ location: new RegExp(req.body.search, 'i') })
+    .then(searches => res.json(searches))
+    .catch(err => res.json(err));
+})
+
 router.get("/all", (req, res) => {
   Search.find()
     .then(searches => res.json(searches))

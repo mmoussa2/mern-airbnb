@@ -6,7 +6,7 @@ function StepOne(props) {
       <div className="step-one">
         <h2>What kind of place are you listing?</h2>
         <h5>First, let's narrow things down</h5>
-        <form onChange={props.handleChange("type")} className="hosting-radio-form">
+        <form onChange={props.handleChange("type")} className="hosting-radio-form" required>
           <div className="hosting-radio-button">
             <input type="radio" name="b" value="Apartment" id="b1"/>
             <label htmlFor="b1">Apartment</label>

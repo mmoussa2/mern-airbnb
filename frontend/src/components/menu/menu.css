@@ -9,11 +9,14 @@
   display: block;
   text-decoration: none;
   color: rgb(72, 72, 72);
+  background-color: rgb(240, 240, 240);
   padding: 20px 0;
+  z-index: 1;
+  width: 100vw;
 }
 
 .menu-options a:hover {
-  background-color: rgb(240, 240, 240);
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
 }
 
 .menu-button {

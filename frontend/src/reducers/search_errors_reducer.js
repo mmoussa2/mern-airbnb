@@ -1,5 +1,5 @@
 import {
-  RECEIVE_SEARCH_CREATE,
+  RECEIVE_SEARCH,
   RECEIVE_SEARCH_ERRORS
 } from "../actions/searches_actions";
 
@@ -10,7 +10,7 @@ const SearchErrorsReducer = (state = _nullErrors, action) => {
   switch (action.type) {
     case RECEIVE_SEARCH_ERRORS:
       return action.errors;
-    case RECEIVE_SEARCH_CREATE:
+    case RECEIVE_SEARCH:
       return _nullErrors;
     default:
       return state;
