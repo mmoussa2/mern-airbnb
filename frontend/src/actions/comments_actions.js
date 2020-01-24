@@ -2,6 +2,7 @@ import * as APIUtil from "../util/comment_api_util.js";
 
 export const RECEIVE_COMMENT_CREATE =  "RECEIVE_COMMENT_CREATE";
 export const RECEIVE_PROPERTY_COMMENTS = "RECEIVE_PROPERTY_COMMENTS";
+export const RECEIVE_PROPERTY_IMAGES = "RECEIVE_PROPERTY_IMAGES";
 export const RECEIVE_COMMENT_ERRORS = "RECEIVE_COMMENT_ERRORS";
 
 export const receiveComment = (comment)=>({
@@ -19,6 +20,13 @@ export const receiveErrors = errors => ({
   type: RECEIVE_COMMENT_ERRORS,
   errors
 });
+
+export const receivePropertyImages= images => {
+  return {
+    type: RECEIVE_PROPERTY_IMAGES,
+    images
+  }
+};
 
 export const createComment= comment => dispatch =>{
   
@@ -40,4 +48,13 @@ export const fetchPropertyComments = (propertyId) => dispatch =>(
        err => dispatch(receiveErrors(err.response.data))
     )
 );
+
+// export const fetchPropertyImages = (propertyId) => dispatch => (
+//   APIUtil.fetchImages(propertyId)
+//     .then(
+//       comments => dispatch(receivePropertyImages(comments.data)),
+//       err => dispatch(receiveErrors(err.response.data))
+//     )
+// );
+
 

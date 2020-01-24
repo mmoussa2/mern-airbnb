@@ -13,7 +13,7 @@ class Modal extends React.Component{
     //   return [];
     // }
      return (
-      <ul>
+      <ul className="errorsRender">
         {Object.keys(this.props.errors).map((error, i) => (
           <li key={`error-${i}`}>
             {this.props.errors[error]}
@@ -33,7 +33,7 @@ class Modal extends React.Component{
       <div className="modal">
         <div className="modal-content">
           {this.props.otherMsg}
-         { this.props.errors.length === 0 ? <div>{"Thank you"}</div> :this.renderErrors()}
+         { this.props.errors.length === 0 ? <div className="done">{"Thank you"}</div> :this.renderErrors()}
           <div className="model-footer">
             <button onClick={(e) => { this.onClose(e) }}>Close</button>
           </div>

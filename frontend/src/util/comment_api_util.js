@@ -12,3 +12,7 @@ export const all = ()=>{
 export const fetchComments = (propertyId) => {
   return axios.get(`/api/comments/${propertyId}`);
 };
+
+// export const fetchImages = (propertyId) => {
+//   return axios.get(`/api/images/${propertyId}`);
+// };

@@ -10,13 +10,15 @@ import ConversationContainer from './message/conversation_container'
 import HostingForm from './hosting/hosting_container';
 import TopBar from './top_bar/top_bar';
 import Home from './home/home_container';
+import PropertyImagesContainer from './reservations/image_property_container';
 
 const App = () => (
-  <div>
+  <div> 
     <TopBar />
     <Switch>
       <ProtectedRoute path="/properties/create" component={HostingForm} />
       <Route path="/properties/:propertyId" component={PropertyShowContainer} />
+      <Route path="/images/:propertyId" component={PropertyImagesContainer} />
       <ProtectedRoute exact path="/messages" component={MessagesContainer} />
       <ProtectedRoute exact path="/messages/*" component={ConversationContainer} />
       <AuthRoute exact path="/login" component={LoginFormContainer} />

@@ -44,4 +44,6 @@ router.get('/:propertyId', (req,res)=>{
 });
 
 
+
+
 module.exports = router;

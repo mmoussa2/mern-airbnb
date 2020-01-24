@@ -10,101 +10,11 @@ html{
 
 body{
   font-family:  "Helvetica", sans-serif;
-  width:94%;
+  width:94%s;
   margin:0 auto;
 }
-/*
-.modal{
-  background:rgba(0, 0, 0, .8);
-  position: fixed;
-  left:0;
-  top:0;
-  height: 100%;
-  width:100%;
-  
-}
-
-.modal_dialog{
-  display: table-cell;
-  vertical-align:middle;
-}
-
-.modal_content{
-  display: table-cell;
-  vertical-align:middle;
-  width:60%;
-  min-width:300px;
-  margin:auto;
-  background:rgba(255,255,255, 1);
-  
-}
-
-.modal_header{
-  background-color:red;
-   color:rgba(255,255,255, .8);
-   padding: 1rem;
-}
-
-.modal_title{
-  margin:0;
-  
-} 
-
-.modal {
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    right: 0;
-    left: 0;
-    background: rgba(0,0,0,0.7);
-    z-index: 10;
-}
-
- .modal-content {
-    background-color: white;
-    width: 300px;
-    
-    border: 1px solid black;
-    padding: 25px;
-    border-radius: 8px;
-    box-sizing: border-box;
-        display: table-cell;
-   vertical-align:middle;
-} 
-  */
 
 
- /* button{
- 
-  font-size: 16px;
-  font-weight: 700;
-  border-radius: 2px;
-  border-width: 0px;
-  margin: 20px;
-  letter-spacing: 2px;
-  width: 150px;
-  padding: 16px 48px 12px;
-  white-space: normal;
-  color: white;
-  background-color: rgb(255, 90, 95);
-} */
-
-
-.modal {
-  position: fixed;
-  z-index: 1;
-  background-color: rgba(0, 0, 0, 0.3);
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-    
-    /* z-index: 10; */
-} 
 .modal-content {
   background-color: #FEFEFE;
   /* margin: 15% auto; */
@@ -115,7 +25,8 @@ body{
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: flex-end;
+  align-items: center;
+  min-width: 350px;
 
   margin: 0 auto;
   max-width: 500px;
@@ -123,9 +34,16 @@ body{
 
   position: relative;
 }
+.modal-content li ul{
+  align-items: left;
+}
 .modal-content h1 {
   color: rgb(72, 72, 72);
   padding: 20px 20px 60px 20px;
+}
+.done{
+  font-size: 20px;
+  padding-right: 40%;
 }
 .model-footer{
   position: absolute;
@@ -142,6 +60,10 @@ body{
   padding: 8px 16px 6px;
   white-space: normal;
   color: white;
-  background-color: rgb(255, 90, 95);
+  background-color:rgba(13, 82, 54, 0.4);;
  
+}
+
+.errorsRender li{
+ padding-right: 100px;
 }

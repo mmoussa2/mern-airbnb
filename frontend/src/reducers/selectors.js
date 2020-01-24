@@ -16,7 +16,6 @@ export const selectPropertyImages = (state, property) => {
     if (image) images.push(image);
   })
   return images;
-
 };
 
 // export const selectCommentsForProperty = ({ comments }, property) => {

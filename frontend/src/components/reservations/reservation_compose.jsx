@@ -25,8 +25,8 @@ class ReservationForm extends React.Component {
   showModal() {
     this.setState({ show: !this.state.show })
   }
+
   calculateDaysCost(endDate){
- 
     if (endDate !== '' && this.state.start_date !== '') {
      
       var differenceDays = new Date(endDate).getTime() - new Date(this.state.start_date).getTime();
@@ -66,12 +66,12 @@ class ReservationForm extends React.Component {
      var now = new Date();
 
      if (selectedDate < now) {
-      this.setState({msg:"Date must be in the future"});
+      // this.setState({msg:"Date must be in the future"});
       return false;
      }
     else {
-       this.setState({ msg: ''});
-       return true;
+      //  this.setState({ msg: ''});
+        return true;
       }
   }
 
@@ -133,16 +133,15 @@ class ReservationForm extends React.Component {
           />
           <br />
           <div className="lblReservationForm">Total  <label className="lblReservationForm total">{this.state.total} </label> </div>   
-          <button >
-            Reserve
-          </button>
+       
+          <button onClick={this.showModal} className="btnSubmit" >Reserve</button>
        
 
           <ReactModal
             show={this.state.show}
             onClose={this.showModal}
             errors={this.props.errors} 
-            otherMsg= {this.state.msg}
+            // otherMsg= {this.state.msg}
             />  
            </form>
 

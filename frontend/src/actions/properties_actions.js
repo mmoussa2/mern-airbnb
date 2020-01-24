@@ -15,8 +15,6 @@ export const receiveAllProperties = properties => ({
   properties
 });
 
-
-
 export const receiveErrors = errors => ({
   type: RECEIVE_PROPERTY_ERRORS,
   errors

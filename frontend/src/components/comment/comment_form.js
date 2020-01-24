@@ -1,6 +1,6 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
-
+import '../../components/reservations/reservation.css'
 
 import ReactModal from '../reservations/modal/modal';
 
@@ -63,9 +63,10 @@ class CommentForm extends React.Component {
             value={this.state.comment}
             onChange={this.update("comment")}
           />
-          <br />
+          <br></br>
+          <br></br>
          
-          <button onClick={this.showModal} >Submit</button>
+          <button onClick={this.showModal} className="btnSubmit" >Submit</button>
           
            <ReactModal 
            show={this.state.show} 
