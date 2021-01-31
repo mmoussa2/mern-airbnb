@@ -39,7 +39,7 @@ class NavBar extends React.Component {
               >
                 <div>
                   <div className="card">
-                    <img src={property.imageUrl} alt="" />
+                    <img src={property.imageUrls[0]} alt="" />
                     <div className="container">
                       <h2>{property.title}</h2>
                       <h4>${property.price} / night</h4>

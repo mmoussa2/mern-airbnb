@@ -1,32 +1,38 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
+import '../../components/reservations/reservation.css'
+
+import ReactModal from '../reservations/modal/modal';
 
 class CommentForm extends React.Component {
   constructor(props) {
     super(props);
+
     this.state = {
       property_id: this.props.match.params.propertyId,
       user_id: props.currentUser.id,
-      comment: ''
+      comment: '',
+      show: false
+
     };
+
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.renderErrors = this.renderErrors.bind(this);
+    this.showModal = this.showModal.bind(this);
   }
 
+  showModal(){
+     this.setState({show : !this.state.show})
+  }
 
   handleSubmit(e) {
+    
     e.preventDefault();
-    const propertyId = parseInt(this.props.match.params.propertyId);
-    const comment = Object.assign({}, this.state, {
-      propertyId: propertyId
-    });
-    this.props.createComment(comment).then((result)=>{
-
-      this.clearData();
-
-    }).catch((result) => {
-
-    });
+    const cmt = Object.assign({}, this.state);
+    
+    this.props.createComment(cmt).then((result)=>{
+      
+    this.clearData();
+    }).catch((result) => {});
     // this.navigateToImageShow();
   }
 
@@ -36,50 +42,51 @@ class CommentForm extends React.Component {
     })
   }
 
-  renderErrors() {
-    //  if (!this.props.errors) return null;
-    let errors = this.props.errors
-    if (typeof this.props.errors === "string") {
-      errors = [errors];
-    }
-    return Object.keys(errors).map((error, i) => (
-        <li key={`error-${i}`}>
-          {this.props.errors[error]}
-        </li>
-      ))
-    ;
-  }
-
   update(property) {
     return e => this.setState({ [property]: e.currentTarget.value });
   }
 
+ 
   render() {
+    
     return (
       <div className="review" >
+
         <form onSubmit={this.handleSubmit}>
-           <h2>
-             Write a Comment
-             </h2>
+          <h2>
+            Write a Comment
+         </h2>
           <br></br>
-          <textarea  
+          <textarea
             cols="30"
             rows="10"
             value={this.state.comment}
             onChange={this.update("comment")}
           />
-          <br />
+          <br></br>
+          <br></br>
+         
+          <button onClick={this.showModal} className="btnSubmit" >Submit</button>
           
-          <button>
-            Submit
-          </button>
+           <ReactModal 
+           show={this.state.show} 
+           onClose={this.showModal} 
+           errors={this.props.errors} /> 
+         
         </form>
-        <ul>
-          {this.renderErrors()} 
-        </ul>
       </div>
     );
   }
 }
 
+
 export default withRouter(CommentForm);
+
+
+
+
+
+
+
+
+

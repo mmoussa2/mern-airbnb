@@ -2,7 +2,6 @@ const express = require("express");
 const router = express.Router();
 const Comment = require('../../models/Comment')
 
-
 const validateCommentInput = require("../../validations/comments");
 
 router.post('/create',(req,res)=>{
@@ -21,7 +20,8 @@ router.post('/create',(req,res)=>{
   });
   newComments
   .save()
-  .then(comment=> res.json(comment))
+  .then(comment=>{
+  res.json(comment)})
   .catch(err=> res.json(err));
 });
 
@@ -42,6 +42,8 @@ router.get('/:propertyId', (req,res)=>{
   })
   .catch(err => res.json(err));
 });
+
+
 
 
 module.exports = router;

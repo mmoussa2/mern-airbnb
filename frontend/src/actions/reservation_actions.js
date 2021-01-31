@@ -43,6 +43,7 @@ export const RECEIVE_PROPERTY = "RECEIVE_PROPERTY";
 export const RECEIVE_PROPERTY_ERRORS = "RECEIVE_PROPERTY_ERRORS";
 
 export const receiveProperty = property => {
+  
   return{
   type: RECEIVE_PROPERTY,
   property

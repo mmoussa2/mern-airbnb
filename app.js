@@ -8,6 +8,8 @@ const cors = require("cors");
 const users = require("./routes/api/users");
 const properties = require("./routes/api/properties");
 const searches = require("./routes/api/searches");
+const reservations = require("./routes/api/reservations");
+const comments = require("./routes/api/comments");
 
 const fileRoutes = require("./routes/api/file-upload");
 const messages = require("./routes/api/messages");
@@ -30,6 +32,8 @@ app.use("/api/properties", properties);
 app.use("/api/searches", searches);
 app.use("/api/images", fileRoutes);
 app.use("/api/messages", messages);
+app.use("/api/reservations", reservations);
+app.use("/api/comments",comments);
 
 app.use(passport.initialize());
 require("./config/passport")(passport);
