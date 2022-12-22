@@ -32,7 +32,7 @@
     "express": "^4.17.1",
     "google-map-react": "^1.1.5",
     "jquery": "^3.4.1",
-    "jsonwebtoken": "^8.5.1",
+    "jsonwebtoken": "^9.0.0",
     "jwt-decode": "^2.2.0",
     "mongoose": "^5.8.4",
     "multer": "^1.4.2",
